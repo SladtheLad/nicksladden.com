@@ -1,0 +1,60 @@
+main {
+  align-items: flex-start;
+  display: flex;
+  flex-direction: column;
+  padding: 5dvh clamp(4dvw, 20dvw, 30dvw) 50dvh clamp(4dvw, 20dvw, 30dvw);
+  gap: 2vh;
+}
+
+text {
+  stroke: currentColor;
+  stroke-width: 2px;
+}
+
+main p {
+  font-size: clamp(2.25rem, 2vw + 1.5rem, 3.25rem);
+  margin: 0;
+}
+
+@media screen and (max-width: 500px) {
+  main p {
+    font-size: clamp(1.25rem, 2vw + 1.5rem, 4rem);
+  }
+  main {
+    padding: 10dvh 5dvw 5dvh 5dvw;
+    padding-left: 5dvw;
+    padding-right: 5dvw;
+  }
+}
+
+@supports (view-timeline-name: --written-text) {
+  main p {
+    view-timeline-name: --written-text;
+    view-timeline-axis: block;
+    animation-name: fade-in;
+    animation-direction: normal;
+    animation-timeline: --written-text;
+  }
+
+  main {
+    padding: 40dvh 20dvw 50dvh 20dvw;
+    gap: 40vh;
+  }
+
+  @keyframes fade-in {
+    0% {
+      opacity: 0;
+    }
+
+    100% {
+      opacity: 1;
+    }
+  }
+
+  @media screen and (max-width: 500px) {
+    main {
+      padding-left: 5dvw;
+      padding-right: 5dvw;
+    }
+  }
+}
