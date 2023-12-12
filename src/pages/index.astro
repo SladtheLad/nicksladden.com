@@ -1,8 +1,10 @@
 ---
 import '../components/portfolio-scroll.css';
 import Layout from '../layouts/layout.astro';
+import { Icon } from 'astro-icon';
 ---
 
+<!-- Loads the SVG in `/src/icons/filename.svg` -->
 <html lang='en'>
   <head>
     <meta charset='utf-8' />
@@ -12,6 +14,17 @@ import Layout from '../layouts/layout.astro';
   </head>
   <Layout>
     <main>
+      <div class='links'>
+        <a href='/resume' title='Resume' aria-label='link to resume'
+          ><Icon
+            name='resume'
+            fill='currentColor'
+            width='1em'
+            height='1em'
+            font-size='2rem'
+          /></a
+        >
+      </div>
       <p>
         {
           `Howdy. I'm Nick. I'm a UX Engineer. I code for a living, but I came to

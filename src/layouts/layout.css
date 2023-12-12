@@ -41,3 +41,8 @@ a {
     color-scheme: dark;
   }
 }
+
+.links {
+  position: fixed;
+  right: 5vw;
+}
