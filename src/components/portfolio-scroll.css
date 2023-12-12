@@ -1,19 +1,7 @@
-main {
-  align-items: flex-start;
-  display: flex;
-  flex-direction: column;
-  padding: 5dvh clamp(4dvw, 20dvw, 30dvw) 50dvh clamp(4dvw, 20dvw, 30dvw);
-  gap: 2vh;
-}
-
-text {
-  stroke: currentColor;
-  stroke-width: 2px;
-}
-
 main p {
   font-size: clamp(2.25rem, 2vw + 1.5rem, 3.25rem);
   margin: 0;
+  text-align: justify;
 }
 
 @media screen and (max-width: 500px) {

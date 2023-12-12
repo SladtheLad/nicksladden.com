@@ -1,0 +1,44 @@
+section {
+  width: 100%;
+}
+
+details {
+}
+
+summary {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.75rem;
+  height: 5rem;
+  border-bottom: 1px solid #f1fcfe4d;
+  font-size: 2.25rem;
+  cursor: pointer;
+}
+
+summary::-webkit-details-marker {
+  display: none;
+}
+
+div.content {
+  max-height: 500px;
+  overflow: scroll;
+}
+
+summary::after {
+  content: '►';
+  display: flex;
+  align-items: center;
+  font-size: 1rem;
+  transition: rotate 200ms 300ms ease-out;
+}
+
+details[open] + div.content {
+  border-color: #888;
+  transition: opacity 200ms ease-out;
+}
+
+details[open] summary::after {
+  rotate: 90deg;
+  transition: rotate 200ms ease-out;
+}

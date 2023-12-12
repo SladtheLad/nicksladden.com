@@ -1,0 +1,35 @@
+---
+export type Props = {
+  date: string;
+  heading: string;
+  itemText: string;
+  link?: {
+    title: string;
+    href: string;
+    text: string;
+  };
+};
+
+const { date, heading, itemText, link } = Astro.props;
+import './detail-card.css';
+---
+
+<div class='card'>
+  <span class='date'>{date}</span>
+  <div class='center'>
+    <h4>
+      {heading}
+    </h4>
+    <p>
+      {itemText}
+    </p>
+  </div>
+
+  {
+    link && (
+      <a title={link.title} href={link.href} target='blank'>
+        {link.text}
+      </a>
+    )
+  }
+</div>

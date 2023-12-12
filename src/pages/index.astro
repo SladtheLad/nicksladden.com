@@ -1,6 +1,6 @@
 ---
 import '../components/portfolio-scroll.css';
-import './index.css';
+import Layout from '../layouts/layout.astro';
 ---
 
 <html lang='en'>
@@ -10,12 +10,12 @@ import './index.css';
     <meta name='generator' content={Astro.generator} />
     <link rel='icon' type='image/svg+xml' href='/favicon.svg' />
   </head>
-  <body>
+  <Layout>
     <main>
       <p>
         {
           `Howdy. I'm Nick. I'm a UX Engineer. I code for a living, but I came to
-          this world a bit later in life.`
+          this industry a bit later in life.`
         }
       </p>
       <p>
@@ -65,5 +65,7 @@ import './index.css';
         }
       </p>
     </main>
-  </body>
+  </Layout>
+
+
 </html>
