@@ -15,7 +15,9 @@ main p {
   }
 }
 
-@supports (view-timeline-name: --written-text) {
+
+Adding this later
+/* @supports (view-timeline-name: --written-text) {
   main p {
     view-timeline-name: --written-text;
     view-timeline-axis: block;
@@ -45,4 +47,4 @@ main p {
       padding-right: 5dvw;
     }
   }
-}
+} */

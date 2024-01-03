@@ -44,5 +44,6 @@ a {
 
 .links {
   position: fixed;
-  right: 5vw;
+  right: 5%;
+  top: 5%;
 }
