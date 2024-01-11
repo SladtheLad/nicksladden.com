@@ -1,7 +1,19 @@
 ---
 import './layout.css';
+
+const { title } = Astro.props.frontmatter || Astro.props;
 ---
 
-<body>
-  <main><slot /></main>
-</body>
+<html lang='en'>
+  <head>
+    <meta charset='utf-8' />
+    <meta name='viewport' content='width=device-width' />
+    <meta name='generator' content={Astro.generator} />
+    <link rel='icon' type='image/svg+xml' href='/favicon.svg' />
+    <title>{title}</title>
+  </head>
+
+  <body>
+    <main><slot /></main>
+  </body>
+</html>

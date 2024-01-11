@@ -14,5 +14,6 @@ div.center {
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
+  /* change this  */
   max-width: 20vw;
 }

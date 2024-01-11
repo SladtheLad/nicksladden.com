@@ -15,9 +15,7 @@ main p {
   }
 }
 
-
-Adding this later
-/* @supports (view-timeline-name: --written-text) {
+@supports (view-timeline-name: --written-text) {
   main p {
     view-timeline-name: --written-text;
     view-timeline-axis: block;
@@ -47,4 +45,4 @@ Adding this later
       padding-right: 5dvw;
     }
   }
-} */
+}
