@@ -8,8 +8,9 @@
   box-sizing: border-box;
   padding: 0;
   margin: 0;
-  --foreground-rgb: #f1fcfecc;
-  --border-color: #f1fcfe40;
+  --foreground-color: #f1fcfecc;
+  --border-color: #38383f;
+  --background-color: #1c1d24;
 }
 
 html,
@@ -20,7 +21,7 @@ body {
 
 body {
   color: var(--foreground-rgb);
-  background: #1c1d24;
+  background: var(--background-color);
 }
 
 main {

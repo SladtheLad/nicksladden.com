@@ -8,8 +8,7 @@ import DetailCard from './detail-card.astro';
 <section role='group'>
   <!-- LEARN WHY DETAILS ELEMENT DOESN'T HAVE NAME ATTRIBUTE??? -->
 
-  <!-- @ts-expect-error -->
-  <details name='accordion'>
+  <details>
     <summary>Work</summary>
     <div class='content'>
       <DetailCard
@@ -39,8 +38,7 @@ import DetailCard from './detail-card.astro';
     </div>
   </details>
 
-  <!-- @ts-expect-error -->
-  <details name='accordion'>
+  <details>
     <summary> Education</summary>
     <div class='content'>
       <DetailCard
