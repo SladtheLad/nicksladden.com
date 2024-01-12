@@ -3,6 +3,7 @@ export type Props = {
   date: string;
   heading: string;
   itemText: string;
+  subHeading: string;
   link?: {
     title: string;
     href: string;
@@ -10,16 +11,17 @@ export type Props = {
   };
 };
 
-const { date, heading, itemText, link } = Astro.props;
+const { date, heading, itemText, subHeading, link } = Astro.props;
 import './detail-card.css';
 ---
 
 <div class='card'>
   <span class='date'>{date}</span>
   <div class='center'>
-    <h4>
+    <h2>
       {heading}
-    </h4>
+    </h2>
+    <h3>{subHeading}</h3>
     <p>
       {itemText}
     </p>

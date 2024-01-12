@@ -29,7 +29,7 @@ summary::-webkit-details-marker {
 }
 
 div.content {
-  max-height: 500px;
+  max-height: 50dvh;
   overflow: scroll;
 }
 

@@ -1,11 +1,13 @@
 span.date {
+  color: var(--header-color);
 }
 
 div.card {
   box-sizing: border-box;
   padding: 1rem;
-  display: flex;
-  justify-content: space-around;
+  display: grid;
+  grid-template-columns: 0.5fr 1fr 0.5fr;
+  justify-items: center;
   align-items: center;
   border-bottom: 1px dashed var(--border-color);
 }
@@ -14,6 +16,14 @@ div.center {
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
-  /* change this  */
-  max-width: 20vw;
+  justify-self: self-start;
+}
+
+h3 {
+  color: var(--header-color);
+}
+
+p {
+  color: var(--content-color);
+  text-align: justify;
 }
