@@ -7,7 +7,7 @@ export type Props = {
   link?: {
     title: string;
     href: string;
-    text: string;
+    label: string;
   };
 };
 
@@ -16,22 +16,22 @@ import './detail-card.css';
 ---
 
 <div class='card'>
-  <span class='date'>{date}</span>
-  <div class='center'>
-    <h2>
-      {heading}
+  <div class='space'>
+    <h2 aria-label={link?.label}>
+      <a
+        class='job-link'
+        href={link?.href}
+        title={link?.title}
+        target='_blank'
+        aria-label={link?.label}>{heading}</a
+      >
     </h2>
-    <h3>{subHeading}</h3>
+    <span class='date'>{date}</span>
+  </div>
+  <h3>{subHeading}</h3>
+  <div class='description'>
     <p>
       {itemText}
     </p>
   </div>
-
-  {
-    link && (
-      <a title={link.title} href={link.href} target='blank'>
-        {link.text}
-      </a>
-    )
-  }
 </div>

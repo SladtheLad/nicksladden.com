@@ -1,29 +1,49 @@
 span.date {
   color: var(--header-color);
+  font-family: CommitMono;
+  font-weight: bold;
 }
 
 div.card {
   box-sizing: border-box;
-  padding: 1rem;
-  display: grid;
-  grid-template-columns: 0.5fr 1fr 0.5fr;
-  justify-items: center;
-  align-items: center;
-  border-bottom: 1px dashed var(--border-color);
-}
-
-div.center {
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
-  justify-self: self-start;
+  justify-items: center;
+  align-items: flex-start;
+  border-bottom: 0.2rem dashed var(--border-color);
+  gap: 1rem;
+
+  padding: 1.5rem 0px;
+
+  &:last-child {
+    border: none;
+  }
 }
 
-h3 {
-  color: var(--header-color);
+div.space {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+div.description {
+  height: 100%;
+  width: 100%;
+  max-width: 45rem;
 }
 
 p {
   color: var(--content-color);
-  text-align: justify;
+  text-align: just;
+  text-wrap: pretty;
+  line-height: 1.4;
+}
+
+a.job-link {
+  color: inherit;
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
 }

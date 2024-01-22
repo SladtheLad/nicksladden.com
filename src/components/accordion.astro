@@ -5,7 +5,7 @@ import DetailCard from './detail-card.astro';
 
 <script src='./accordion-animation.js'></script>
 
-<section role='group'>
+<div class='sections'>
   <!-- LEARN WHY DETAILS ELEMENT DOESN'T HAVE NAME ATTRIBUTE??? -->
 
   <details>
@@ -19,7 +19,7 @@ import DetailCard from './detail-card.astro';
         link={{
           title: 'Randstad',
           href: 'https://www.randstad.com/about-randstad/',
-          text: 'Randstad',
+          label: 'Randstad home page',
         }}
       />
       <DetailCard
@@ -30,7 +30,7 @@ import DetailCard from './detail-card.astro';
         link={{
           title: 'Monster',
           href: 'https://www.monster.com/about',
-          text: 'Monster',
+          label: 'Monster Worldwide homepage',
         }}
       />
       <DetailCard
@@ -41,7 +41,7 @@ import DetailCard from './detail-card.astro';
         link={{
           title: 'EOG Resources, Inc.',
           href: 'https://www.eogresources.com/',
-          text: 'EOG Resources, Inc.',
+          label: 'EOG Resources homepage',
         }}
       />
     </div>
@@ -70,4 +70,4 @@ import DetailCard from './detail-card.astro';
       />
     </div>
   </details>
-</section>
+</div>

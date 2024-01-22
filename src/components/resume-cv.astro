@@ -1,5 +1,45 @@
 ---
 import Accordion from './accordion.astro';
+import './resume-cv.css';
+import Icon from 'astro-icon';
 ---
 
-<Accordion />
+<section>
+  <header>
+    <h1>Nick Sladden</h1>
+    <h4>
+      Philosophy student turned Web Developer - primarily focused on Front-end,
+      UI/UX Engineering, design systems, and building component libraries.
+    </h4>
+    <div class='links'>
+      <a
+        class='socials'
+        href='mailto:nicholas.sladden@gmail.com'
+        aria-label='email'
+      >
+        <Icon name='mail' width='1em' height='1em' font-size='1rem' />
+      </a>
+      <a class='socials' href='tel:+18172397721' aria-label='phone'>
+        <Icon name='phone' width='1em' height='1em' font-size='1rem' />
+      </a>
+      <a
+        class='socials'
+        href='https://github.com/SladtheLad'
+        target='_blank'
+        aria-label='GitHub profile'
+      >
+        <Icon name='github' width='1em' height='1em' font-size='1rem' />
+      </a>
+      <a
+        class='socials'
+        href='https://www.linkedin.com/in/nick-sladden/'
+        target='_blank'
+        aria-label='LinkedIn profile'
+      >
+        <Icon name='linkedin' width='1em' height='1em' font-size='1rem' />
+      </a>
+    </div>
+  </header>
+
+  <Accordion />
+</section>

@@ -1,4 +1,4 @@
-section {
+div.sections {
   width: 100%;
   height: 100%;
   display: flex;
@@ -13,14 +13,21 @@ summary {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0.75rem;
+  padding: calc(var(--corner-border-width) + var(--corner-border-thickness));
   height: 5rem;
-  border: 1px solid var(--background-color);
-  font-size: 2.25rem;
+  border: var(--corner-border-thickness) solid #0000;
+  background: var(--corner-border-gradient);
+  transition: all 0.3s;
+  font-size: 1.75rem;
   cursor: pointer;
 
   &:hover {
-    border-color: var(--border-color);
+    --corner-border-color: var(--foreground-color);
+  }
+
+  &:focus-visible {
+    outline: none;
+    --corner-border-color: var(--foreground-color);
   }
 }
 
@@ -29,8 +36,8 @@ summary::-webkit-details-marker {
 }
 
 div.content {
-  max-height: 50dvh;
   overflow: scroll;
+  padding: 1rem;
 }
 
 summary::after {
