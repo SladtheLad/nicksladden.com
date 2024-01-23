@@ -17,18 +17,20 @@ import './detail-card.css';
 
 <div class='card'>
   <div class='space'>
-    <h2 aria-label={link?.label}>
-      <a
-        class='job-link'
-        href={link?.href}
-        title={link?.title}
-        target='_blank'
-        aria-label={link?.label}>{heading}</a
-      >
+    <h2>
+      {heading}
     </h2>
     <span class='date'>{date}</span>
   </div>
-  <h3>{subHeading}</h3>
+  <h3>
+    <a
+      class='job-link'
+      href={link?.href}
+      title={link?.title}
+      target='_blank'
+      aria-label={link?.label}>{subHeading}</a
+    >
+  </h3>
   <div class='description'>
     <p>
       {itemText}

@@ -13,9 +13,9 @@ import DetailCard from './detail-card.astro';
     <div class='content'>
       <DetailCard
         date='JUL 2023 - DEC 2023'
-        heading='Randstad'
+        heading='Senior UX Engineer'
         itemText={`Leveraging a fork of the services developed by Monster, a subsidiary of Randstad, took the lead in several aspects of my team’s setup of a completely new architecture for the company’s multi-brand design system named Orbit for their rebranding initiatives. This included choosing the latest tooling options, styling solutions, and streamlining the consumption of our Figma output.`}
-        subHeading='Senior UX Engineer'
+        subHeading='Randstad'
         link={{
           title: 'Randstad',
           href: 'https://www.randstad.com/about-randstad/',
@@ -24,9 +24,9 @@ import DetailCard from './detail-card.astro';
       />
       <DetailCard
         date='DEC 2021 - JUL 2023'
-        heading='Monster Worldwide'
+        heading='UX Engineer'
         itemText={`Developed a robust multi-brand design system focusing on extensibility and usability. Through custom services, our team bridged the gap between design and code by fully leveraging the Figma API to create a complete connection between design tokens and react components.`}
-        subHeading='UX Engineer'
+        subHeading='Monster Worldwide'
         link={{
           title: 'Monster',
           href: 'https://www.monster.com/about',
@@ -35,9 +35,9 @@ import DetailCard from './detail-card.astro';
       />
       <DetailCard
         date='AUG 2019 - DEC 2021'
-        heading='EOG Resources, Inc.'
+        heading='Software Engineer II'
         itemText={`Developed robust web applications and services for the purpose of optimizing the performance of production wells, aiding the field engineers who monitor them, and tracking the company’s emissions. Within my first year, I quickly got up to speed and had hands in all new and old applications developed by my team. I became the senior front-end developer of the newest cutting-edge data visualization applications for the team that aided in stochastic modeling. Later, I led the charge at the company to implement a growing design system by creating and maintaining component and color libraries for web applications at the company.`}
-        subHeading='Software Engineer II'
+        subHeading='EOG Resources, Inc.'
         link={{
           title: 'EOG Resources, Inc.',
           href: 'https://www.eogresources.com/',
@@ -48,26 +48,32 @@ import DetailCard from './detail-card.astro';
   </details>
 
   <details>
-    <summary> Education</summary>
+    <summary>Education</summary>
     <div class='content'>
       <DetailCard
         date='SEP 2017 - MAR 2018'
-        heading='The University of Texas at Austin'
+        heading='Full Stack Flex Program Certificate'
         itemText={`A six-month intensive certificate program focusing on full-stack web development.`}
-        subHeading='Certificate, The Houston Coding Boot Camp - Full Stack Flex Program'
+        subHeading='Houston Coding Bootcamp'
       />
       <DetailCard
         date='AUG 2010 - MAY 2014'
-        heading='The University of Texas at Dallas'
+        heading='M.A. in Humanities — History of Ideas'
         itemText={`An interdisciplinary degree that melded history and philosophy.`}
-        subHeading='M.A. in Humanities — History of Ideas'
+        subHeading='The University of Texas at Dallas'
       />
       <DetailCard
         date='AUG 2007 - MAY 2010'
-        heading='The University of North Texas'
+        heading='B.A. In Philosophy'
         itemText={`Leveraging a fork of the services developed by Monster, a subsidiary of Randstad, took the lead in several aspects of my team’s setup of a completely new architecture for the company’s multi-brand design system named Orbit for their rebranding initiatives. This included choosing the latest tooling options, styling solutions, and streamlining the consumption of our Figma output.`}
-        subHeading='B.A. In Philosophy'
+        subHeading='The University of North Texas'
       />
     </div>
+  </details>
+
+  <details>
+    <summary>Projects</summary>
+    <!-- @ts-expect-error -->
+    <div class='content'><DetailCard heading='Coming Soon' /></div>
   </details>
 </div>
