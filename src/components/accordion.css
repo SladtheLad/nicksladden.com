@@ -36,7 +36,6 @@ summary::-webkit-details-marker {
 }
 
 div.content {
-  overflow: scroll;
   padding: 1rem;
 }
 
