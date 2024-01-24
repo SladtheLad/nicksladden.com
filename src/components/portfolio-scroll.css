@@ -2,6 +2,11 @@ main p {
   font-size: clamp(2.25rem, 2vw + 1.5rem, 3.25rem);
   margin: 0;
   text-align: justify;
+  margin-bottom: 40dvh;
+
+  &:first-of-type {
+    margin-top: 30dvh;
+  }
 }
 
 @media screen and (max-width: 500px) {
@@ -9,7 +14,6 @@ main p {
     font-size: clamp(1.25rem, 2vw + 1.5rem, 4rem);
   }
   main {
-    padding: 10dvh 5dvw 5dvh 5dvw;
     padding-left: 5dvw;
     padding-right: 5dvw;
   }
@@ -22,11 +26,6 @@ main p {
     animation-name: fade-in;
     animation-direction: normal;
     animation-timeline: --written-text;
-  }
-
-  main {
-    padding: 40dvh 20dvw 50dvh 20dvw;
-    gap: 40vh;
   }
 
   @keyframes fade-in {

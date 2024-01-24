@@ -93,7 +93,7 @@ h6 {
 }
 
 body {
-  color: var(--foreground-rgb);
+  color: var(--foreground-color);
   background: var(--background-color);
 }
 
@@ -101,12 +101,9 @@ main {
   align-items: flex-start;
   display: flex;
   flex-direction: column;
-  padding: 1.5rem;
-  gap: 2vh;
-
-  @media (min-width: 768px) {
-    padding: 10dvh 5dvw;
-  }
+  max-width: 75rem;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 a {
