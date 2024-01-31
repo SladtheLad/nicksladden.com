@@ -1,6 +1,6 @@
 ---
 import './layout.css';
-import { Analytics } from '@vercel/analytics/react';
+
 const { title } = Astro.props.frontmatter || Astro.props;
 ---
 
@@ -10,8 +10,6 @@ const { title } = Astro.props.frontmatter || Astro.props;
     <meta name='viewport' content='width=device-width' />
     <meta name='generator' content={Astro.generator} />
     <link rel='icon' type='image/svg+xml' href='/favicon.svg' />
-    <Analytics />
-
     <title>{title}</title>
   </head>
 
