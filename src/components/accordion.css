@@ -39,10 +39,8 @@ div.content {
   padding: 1rem;
 }
 
-summary::after {
-  content: '►';
-  font-size: 1rem;
-  transition: rotate 200ms 300ms ease-out;
+summary svg {
+  transition: transform 300ms ease-in-out;
 }
 
 details[open] + div.content {
@@ -52,8 +50,7 @@ details[open] + div.content {
 
 details[open] summary {
   border-color: var(--foreground-color);
-  &::after {
-    rotate: 90deg;
-    transition: rotate 200ms ease-out;
+  svg {
+    transform: rotateX(180deg);
   }
 }
