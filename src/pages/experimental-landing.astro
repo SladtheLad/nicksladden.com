@@ -1,11 +1,12 @@
 ---
 import Layout from '../layouts/layout.astro';
 import '../components/portfolio-scroll.css';
+import Icon from 'astro-icon';
 ---
 
 <Layout title='Experimental Landing Page'>
-  <div class='links'>
-    <!-- <a href='/resume' title='Resume' aria-label='link to resume'
+  <!-- <div class='links'>
+    <a href='/resume' title='Resume' aria-label='link to resume'
       ><Icon
         name='resume'
         fill='currentColor'
@@ -13,9 +14,22 @@ import '../components/portfolio-scroll.css';
         height='1em'
         font-size='2rem'
       /></a
-    > -->
-  </div>
-  <p>
+    >
+  </div> -->
+
+  <section>
+    <button class='rpg-dialog'>
+      <div class='rpg-dialog-front'>
+        {
+          `Howdy. I'm Nick. I'm a UX Engineer. I code for a living, but I came to
+          this industry a bit later in life.`
+        }
+        <Icon name='triangle' />
+      </div>
+    </button>
+  </section>
+
+  <!-- <p>
     {
       `Howdy. I'm Nick. I'm a UX Engineer. I code for a living, but I came to
             this industry a bit later in life.`
@@ -66,5 +80,63 @@ import '../components/portfolio-scroll.css';
           interest in spending my life arguing with predominately old men, so my
           dream of being a Nietzsche scholar in Germany would remain a dream.`
     }
-  </p>
+  </p> -->
 </Layout>
+
+<script>
+  //   const buttons = document.querySelectorAll('div.rpg-dialog');
+  //
+  //   buttons.forEach((button) => {
+  //     button.addEventListener('click', () => {
+  //       button.classList.toggle('active');
+  //     });
+  //   });
+</script>
+
+<style>
+  section {
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+    align-items: center;
+    margin: auto;
+    margin-top: 5rem;
+  }
+
+  .rpg-dialog {
+    border-radius: 0.5rem;
+    background-color: #63667d;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    outline-offset: 4px;
+  }
+
+  .rpg-dialog-front {
+    display: block;
+    padding: 2rem;
+    background-color: var(--background-color);
+    color: var(--foreground-color);
+    border: 2px solid var(--foreground-color);
+    border-radius: 0.5rem;
+    transition: transform 0.1s ease;
+    transform: translateY(-12px) translateX(-6px);
+
+    height: 250px;
+    width: 600px;
+
+    svg {
+      position: relative;
+      bottom: -60%;
+      right: -80%;
+      width: 1em;
+      height: 1em;
+      font-size: 1rem;
+      transform: rotate(180deg);
+    }
+  }
+
+  .rpg-dialog:active .rpg-dialog-front {
+    transform: translateY(-6px) translateX(-2px);
+  }
+</style>
