@@ -2,7 +2,7 @@
 export type Props = {
   date: string;
   heading: string;
-  itemText: string;
+  itemText: Element | string;
   subHeading: string;
   link?: {
     title: string;
@@ -32,8 +32,6 @@ import './detail-card.css';
     >
   </h3>
   <div class='description'>
-    <p>
-      {itemText}
-    </p>
+    {itemText}
   </div>
 </div>
