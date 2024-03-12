@@ -29,12 +29,12 @@ a.socials {
   font-size: 1.25rem;
 
   &:hover {
-    --corner-border-color: var(--foreground-color);
+    --corner-border-color: var(--accent);
   }
 
   &:focus-visible {
     outline: none;
-    --corner-border-color: var(--foreground-color);
+    --corner-border-color: var(--accent);
   }
 
   @media (min-width: 768px) {

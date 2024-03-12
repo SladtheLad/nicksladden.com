@@ -2,6 +2,7 @@
 import './accordion.css';
 import DetailCard from './detail-card.astro';
 import Icon from 'astro-icon';
+import OrbitScreensImage from '../images/randstad-screens.webp';
 ---
 
 <script src='./accordion-animation.js'></script>
@@ -84,6 +85,40 @@ import Icon from 'astro-icon';
       <Icon name='chevron-down' width='1em' height='1em' font-size='2rem' />
     </summary>
     <!-- @ts-expect-error -->
-    <div class='content'><DetailCard heading='Coming Soon' /></div>
+    <div class='content'>
+      <DetailCard
+        heading='Orbit Design System'
+        date='2021-2023'
+        subHeading='Randstad'
+        image={{
+          src: OrbitScreensImage,
+          alt: 'Randstad Orbit design system screens',
+        }}
+      >
+        <ul slot='itemText'>
+          <li>
+            Leveraging a fork of the services developed by Monster, a subsidiary
+            of Randstad, I took the lead in several aspects of my team's setup
+            of a completely new architecture for the company`s multi-brand
+            design system named Orbit for their rebranding initiatives.
+          </li>
+          <li>
+            I lead the charge on updating our tooling for our libraries,
+            including updating our unit testing suite from <pre>jest</pre> to <pre>vitest</pre>,
+            rehauling and streamlining our <pre>Typescript</pre> component and style
+            types for easier use with updates to <pre>styled-components</pre> v5,
+            as well as simplifying our <pre>Jenkins</pre> scripts for our CI/CD pipelines.
+          </li>
+          <li>
+            I worked daily with our design leads to create a new token system,
+            documenting both design and development documentation on a
+            third-party system called <pre>supernova.io</pre> (a CMS-like documentation
+            application with the sole goal of documenting design systems), optimizing
+            our custom-drawn icon libraries and automating the publication of icons
+            as SVG sprites, all to align with the organizations rebranding.
+          </li>
+        </ul>
+      </DetailCard>
+    </div>
   </details>
 </div>

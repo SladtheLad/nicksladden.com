@@ -2,17 +2,21 @@
 export type Props = {
   date: string;
   heading: string;
-  itemText: Element | string;
+  itemText?: string;
   subHeading: string;
   link?: {
     title: string;
     href: string;
     label: string;
   };
+  image?: {
+    src: ImageMetadata;
+    alt: string;
+  };
 };
 
-const { date, heading, itemText, subHeading, link } = Astro.props;
-import './detail-card.css';
+const { date, heading, image, itemText, subHeading, link } = Astro.props;
+import { Image } from 'astro:assets';
 ---
 
 <div class='card'>
@@ -31,7 +35,111 @@ import './detail-card.css';
       aria-label={link?.label}>{subHeading}</a
     >
   </h3>
+  {
+    image ? (
+      <div class='image'>
+        <Image
+          src={image.src}
+          alt={image.alt}
+          title={image.alt}
+          style={{
+            objectFit: 'none',
+            zoom: '100%',
+            width: '100%',
+            maxHeight: '20dvh',
+          }}
+        />
+      </div>
+    ) : null
+  }
   <div class='description'>
     {itemText}
+    <slot name='itemText' />
   </div>
 </div>
+
+<style scoped>
+  span.date {
+    color: var(--header-color);
+    font-family: CommitMono;
+    vertical-align: baseline;
+    max-width: 7.5rem;
+  }
+
+  div.card {
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-items: center;
+    align-items: flex-start;
+    border-bottom: 0.2rem dashed var(--border-color);
+    padding: 1.5rem 0px;
+
+    &:last-child {
+      border: none;
+    }
+
+    ul {
+      margin-left: 1rem;
+    }
+
+    .image {
+      margin-top: 1rem;
+      width: 100%;
+    }
+  }
+
+  div.space {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    width: 100%;
+    gap: 0.5rem;
+  }
+
+  div.description {
+    height: 100%;
+    width: 100%;
+    max-width: 45rem;
+    margin-top: 2rem;
+  }
+
+  p {
+    color: var(--content-color);
+    text-wrap: pretty;
+    line-height: 1.4;
+  }
+
+  h3 {
+    line-height: normal;
+  }
+
+  h2 {
+    line-height: normal;
+    max-width: 17.5rem;
+  }
+
+  a.job-link {
+    color: inherit;
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  @media (min-width: 768px) {
+    h3 {
+      line-height: 0.9;
+    }
+
+    h2 {
+      line-height: 1.25;
+      max-width: none;
+    }
+
+    span.date {
+      max-width: none;
+    }
+  }
+</style>

@@ -1,0 +1,57 @@
+.rpg-dialog {
+  background-color: inherit;
+  color: inherit;
+  display: inline-flex;
+  border: 2px solid var(--foreground-color);
+  border-radius: 0.5rem;
+  padding: 2rem;
+  cursor: pointer;
+  outline-offset: 0.5rem;
+  min-height: 250px;
+  width: 70dvw;
+  max-width: 650px;
+  height: 100%;
+  margin: auto;
+  margin-top: 30dvh;
+  font-size: calc(1rem + 1dvw);
+  text-align: start;
+  position: relative;
+  font-family: inherit;
+  line-height: 2.25rem;
+
+  svg {
+    position: absolute;
+    bottom: 5%;
+    right: 5%;
+    width: 1em;
+    height: 1em;
+    font-size: 1rem;
+    animation: jumpInfinite ease 1.5s infinite;
+    transform: rotate(180deg) translateY(0);
+  }
+
+  #typed-text {
+    height: 100%;
+    width: 100%;
+    display: block;
+  }
+}
+
+@keyframes jumpInfinite {
+  0% {
+    transform: rotate(180deg) translateY(0px);
+  }
+  50% {
+    transform: rotate(180deg) translateY(10px);
+  }
+  100% {
+    transform: rotate(180deg) translateY(0px);
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .rpg-dialog {
+    width: 90%;
+    font-size: calc(1rem + 1vw);
+  }
+}

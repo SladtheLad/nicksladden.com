@@ -22,12 +22,11 @@ summary {
   cursor: pointer;
 
   &:hover {
-    --corner-border-color: var(--foreground-color);
+    --corner-border-color: var(--accent);
   }
 
   &:focus-visible {
-    outline: none;
-    --corner-border-color: var(--foreground-color);
+    --corner-border-color: var(--accent);
   }
 }
 
@@ -49,7 +48,8 @@ details[open] + div.content {
 }
 
 details[open] summary {
-  border-color: var(--foreground-color);
+  border-color: var(--accent);
+  outline-offset: 0.75rem;
   svg {
     transform: rotateX(180deg);
   }
