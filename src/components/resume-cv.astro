@@ -43,3 +43,49 @@ import Icon from 'astro-icon';
 
   <Accordion />
 </section>
+
+<style scoped>
+  header {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 2rem;
+    max-width: 40rem;
+  }
+
+  div.links {
+    display: flex;
+    height: 100%;
+    gap: 1rem;
+    margin: 2rem 0 2rem 0;
+  }
+
+  h1 {
+    font-size: 2rem;
+  }
+
+  a.socials {
+    display: flex;
+    place-content: center;
+    place-items: center;
+    --corner-border-width: 0.4rem;
+    padding: 0.3rem;
+    border: var(--corner-border-thickness) solid #0000;
+    background: var(--corner-border-gradient);
+    transition: all 0.3s;
+
+    font-size: 1.25rem;
+
+    &:hover {
+      --corner-border-color: var(--accent);
+    }
+
+    &:focus-visible {
+      outline: none;
+      --corner-border-color: var(--accent);
+    }
+
+    @media (min-width: 768px) {
+      font-size: 1rem;
+    }
+  }
+</style>
