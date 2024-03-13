@@ -8,6 +8,9 @@
 
 article {
   text-align: justify;
+  margin: 10ch auto;
+  overflow: auto;
+  height: 80dvh;
   p {
     margin: 0.5rem auto;
   }
