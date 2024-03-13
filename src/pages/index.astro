@@ -3,7 +3,7 @@ import Layout from '../layouts/layout.astro';
 import RPGDialog from '../components/rpg-dialog.tsx';
 import Icon from 'astro-icon';
 
-let cards = [
+const cards = [
   `Howdy. I'm Nick. I'm a UX Engineer. I code for a living, but I came to this
     industry a bit later in life.`,
   `Ya see, I am one of the large population of millenials and GenX kids
@@ -49,4 +49,11 @@ let cards = [
   </RPGDialog>
 </Layout>
 
-<script></script>
+<style scoped>
+  button {
+    background: none;
+    border: none;
+    font-size: 2rem;
+    color: var(--text-color);
+  }
+</style>

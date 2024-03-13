@@ -54,7 +54,8 @@ article {
   }
 }
 
-.close-button {
+.close-button,
+.play-button {
   background-color: inherit;
   outline-offset: 4px;
   color: var(--foreground-color);
@@ -76,6 +77,16 @@ article {
     outline: none;
     --corner-border-color: var(--accent);
   }
+}
+
+.play-button {
+  padding: 0.3rem;
+  border: var(--corner-border-width) solid #0000;
+  top: 2.5%;
+  font-size: inherit;
+  display: flex;
+  place-content: center;
+  place-items: center;
 }
 @keyframes jumpInfinite {
   0% {

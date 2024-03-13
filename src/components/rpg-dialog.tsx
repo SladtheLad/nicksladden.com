@@ -72,7 +72,7 @@ const RPGDialog = ({ cards, children }: RPGDialogProps) => {
 
   const [showFullText, setShowFullText] = React.useState<boolean>(false);
 
-  //reset on mount
+  // Reset the state when the component is unmounted
   useEffect(() => {
     setShowFullText(false);
     setShowCloseTextButton(false);
@@ -90,6 +90,27 @@ const RPGDialog = ({ cards, children }: RPGDialogProps) => {
           {cards.map((card) => (
             <p key={card}>{card}</p>
           ))}
+          <button
+            className='play-button'
+            onClick={() => setShowFullText(false)}
+            title='play-button'
+            aria-label='Play button to restart the RPG dialogue.'
+          >
+            <svg
+              xmlns='http://www.w3.org/2000/svg'
+              width='24'
+              height='24'
+              viewBox='0 0 24 24'
+              fill='none'
+              stroke='currentColor'
+              strokeWidth='2'
+              strokeLinecap='round'
+              strokeLinejoin='round'
+              className='lucide lucide-play'
+            >
+              <polygon points='6 3 20 12 6 21 6 3' />
+            </svg>
+          </button>
         </article>
       ) : (
         <button className='rpg-dialog' onClick={handleNext}>
