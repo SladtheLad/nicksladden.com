@@ -60,7 +60,6 @@ import favicon from '../images/favicon.ico';
         box-sizing: border-box;
         padding: 0;
         margin: 0;
-        /* --foreground-color: #f1fcfecc; */
         --foreground-color: #e9efff;
         --header-color: #8a9192;
         --content-color: #ced7d8;
@@ -68,7 +67,6 @@ import favicon from '../images/favicon.ico';
         --background-color: #1c1d24;
         --link-color: var(--header-color);
         --accent: #ffb980;
-
         accent-color: var(--accent);
         outline-color: var(--accent);
 
@@ -79,7 +77,6 @@ import favicon from '../images/favicon.ico';
         --corner-border-g: #0000 90deg, var(--corner-border-color) 0;
         --corner-border-p: var(--corner-border-width) var(--corner-border-width)
           border-box no-repeat;
-
         --corner-border-gradient: conic-gradient(
               from 90deg at top var(--corner-border-thickness) left
                 var(--corner-border-thickness),
@@ -123,6 +120,8 @@ import favicon from '../images/favicon.ico';
       body {
         font-family: CommitMono, system-ui;
         font-size: 14px;
+        font-smooth: auto;
+        -webkit-font-smoothing: antialiased;
 
         @media (min-width: 768px) {
           font-size: 18px;
@@ -149,19 +148,32 @@ import favicon from '../images/favicon.ico';
         font-weight: normal;
       }
 
+      button {
+        font-family: CommitMono;
+        font-weight: normal;
+        background: none;
+        border: none;
+        pointer: cursor;
+
+        @media (min-width: 768px) {
+          font-size: 1rem;
+        }
+      }
+
       body {
         color: var(--foreground-color);
         background: var(--background-color);
       }
 
       main {
-        align-items: flex-start;
+        align-items: center;
         display: flex;
         flex-direction: column;
         max-width: 75rem;
         margin-left: auto;
         margin-right: auto;
         height: 100dvh;
+        position: relative;
 
         @media screen and (max-width: 768px) {
           padding: 1rem;

@@ -6,6 +6,8 @@ interface RPGDialogProps extends React.ComponentProps<'dialog'> {
   cards: string[];
 }
 
+let closeText = 'This is cute, but just show me the full text please.';
+
 const RPGDialog = ({ cards, children }: RPGDialogProps) => {
   const [currentCard, setCurrentCard] = React.useState<string>(cards[0] || '');
   const [currentIndex, setCurrentIndex] = React.useState<number>(0);
@@ -41,13 +43,63 @@ const RPGDialog = ({ cards, children }: RPGDialogProps) => {
     }
   }, [currentTypeTextIndex, delay, currentTypeText, currentIndex]);
 
+  // Close button stuff
+  const [showCloseTextButton, setShowCloseTextButton] =
+    React.useState<boolean>(false);
+  const [currentCloseText, setCurrentCloseText] = React.useState<string>('');
+  const [currentCloseTextIndex, setCurrentCloseTextIndex] =
+    React.useState<number>(0);
+  useEffect(() => {
+    if (currentIndex === 1) {
+      setShowCloseTextButton(true);
+    }
+  }, [currentIndex]);
+
+  useEffect(() => {
+    if (showCloseTextButton) {
+      if (currentCloseTextIndex < closeText.length) {
+        const timeout = setTimeout(() => {
+          setCurrentCloseText(
+            (prevText) => prevText + closeText[currentCloseTextIndex],
+          );
+          setCurrentCloseTextIndex((prevIndex) => prevIndex + 1);
+        }, delay);
+
+        return () => clearTimeout(timeout);
+      }
+    }
+  }, [currentCloseTextIndex, delay, currentCloseText, showCloseTextButton]);
+
+  const [showFullText, setShowFullText] = React.useState<boolean>(false);
+
+  //reset on mount
+  useEffect(() => {
+    setShowFullText(false);
+    setShowCloseTextButton(false);
+  }, []);
+
   return (
-    <button className='rpg-dialog' onClick={handleNext}>
-      <span id='typed-text'>
-        {currentIndex === 0 ? currentTypeText : currentCard}
-      </span>
-      {children}
-    </button>
+    <section className='container'>
+      {showCloseTextButton && !showFullText ? (
+        <button className='close-button' onClick={() => setShowFullText(true)}>
+          {currentCloseText}
+        </button>
+      ) : null}
+      {showFullText ? (
+        <article>
+          {cards.map((card) => (
+            <p key={card}>{card}</p>
+          ))}
+        </article>
+      ) : (
+        <button className='rpg-dialog' onClick={handleNext}>
+          <span id='typed-text'>
+            {currentIndex === 0 ? currentTypeText : currentCard}
+          </span>
+          {children}
+        </button>
+      )}
+    </section>
   );
 };
 

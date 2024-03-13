@@ -7,6 +7,7 @@ import OrbitScreensImage from '../images/randstad-screens.webp';
 <script src='./accordion-animation.js'></script>
 
 <div class='sections'>
+  <!-- WORK SECTION -->
   <details>
     <summary
       >Work
@@ -49,44 +50,22 @@ import OrbitScreensImage from '../images/randstad-screens.webp';
     </div>
   </details>
 
-  <details>
-    <summary
-      >Education
-      <Icon name='chevron-down' width='1em' height='1em' font-size='2rem' />
-    </summary>
-    <div class='content'>
-      <DetailCard
-        date='2017-2018'
-        heading='Full Stack Flex Program Certificate'
-        itemText={`A six-month intensive certificate program focusing on full-stack web development.`}
-        subHeading='Houston Coding Bootcamp'
-      />
-      <DetailCard
-        date='2010-2014'
-        heading='M.A. in Humanities — History of Ideas'
-        itemText={`An interdisciplinary degree that melded history and philosophy.`}
-        subHeading='The University of Texas at Dallas'
-      />
-      <DetailCard
-        date='2007-2010'
-        heading='B.A. In Philosophy'
-        itemText={`Leveraging a fork of the services developed by Monster, a subsidiary of Randstad, took the lead in several aspects of my team’s setup of a completely new architecture for the company’s multi-brand design system named Orbit for their rebranding initiatives. This included choosing the latest tooling options, styling solutions, and streamlining the consumption of our Figma output.`}
-        subHeading='The University of North Texas'
-      />
-    </div>
-  </details>
-
+  <!-- PROJECTS -->
   <details>
     <summary
       >Projects
       <Icon name='chevron-down' width='1em' height='1em' font-size='2rem' />
     </summary>
-    <!-- @ts-expect-error -->
     <div class='content'>
       <DetailCard
         heading='Orbit Design System'
         date='2021-2023'
         subHeading='Randstad'
+        link={{
+          title: 'Randstad',
+          href: 'https://www.randstad.com/about-randstad/',
+          label: 'Randstad home page',
+        }}
         image={{
           src: OrbitScreensImage,
           alt: 'Randstad Orbit design system screens',
@@ -116,6 +95,34 @@ import OrbitScreensImage from '../images/randstad-screens.webp';
           </li>
         </ul>
       </DetailCard>
+    </div>
+  </details>
+
+  <!-- EDUCATION -->
+  <details>
+    <summary
+      >Education
+      <Icon name='chevron-down' width='1em' height='1em' font-size='2rem' />
+    </summary>
+    <div class='content'>
+      <DetailCard
+        date='2017-2018'
+        heading='Full Stack Flex Program Certificate'
+        itemText={`A six-month intensive certificate program focusing on full-stack web development.`}
+        subHeading='Houston Coding Bootcamp'
+      />
+      <DetailCard
+        date='2010-2014'
+        heading='M.A. in Humanities — History of Ideas'
+        itemText={`An interdisciplinary degree that melded history and philosophy.`}
+        subHeading='The University of Texas at Dallas'
+      />
+      <DetailCard
+        date='2007-2010'
+        heading='B.A. In Philosophy'
+        itemText={`Leveraging a fork of the services developed by Monster, a subsidiary of Randstad, took the lead in several aspects of my team’s setup of a completely new architecture for the company’s multi-brand design system named Orbit for their rebranding initiatives. This included choosing the latest tooling options, styling solutions, and streamlining the consumption of our Figma output.`}
+        subHeading='The University of North Texas'
+      />
     </div>
   </details>
 </div>

@@ -1,3 +1,18 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  place-items: center;
+  place-content: center;
+  position: relative;
+}
+
+article {
+  text-align: justify;
+  p {
+    margin: 0.5rem auto;
+  }
+}
+
 .rpg-dialog {
   background-color: inherit;
   color: inherit;
@@ -36,6 +51,29 @@
   }
 }
 
+.close-button {
+  background-color: inherit;
+  outline-offset: 4px;
+  color: var(--foreground-color);
+  position: absolute;
+  top: 25%;
+  --corner-border-width: 0.4rem;
+  padding: calc(var(--corner-border-width) + var(--corner-border-thickness));
+  border: var(--corner-border-thickness) solid #0000;
+  background: var(--corner-border-gradient);
+  transition: all 0.3s;
+
+  font-size: 0.75rem;
+
+  &:hover {
+    --corner-border-color: var(--accent);
+  }
+
+  &:focus-visible {
+    outline: none;
+    --corner-border-color: var(--accent);
+  }
+}
 @keyframes jumpInfinite {
   0% {
     transform: rotate(180deg) translateY(0px);
