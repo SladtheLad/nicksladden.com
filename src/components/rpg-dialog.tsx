@@ -89,7 +89,7 @@ const RPGDialog = ({ cards, children }: RPGDialogProps) => {
           gap: '1rem',
           width: '100%',
           position: 'absolute',
-          top: '0',
+          top: '1rem',
         }}
       >
         <button

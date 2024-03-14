@@ -103,8 +103,11 @@ article {
 }
 
 @media screen and (max-width: 768px) {
+  .container {
+    width: 100%;
+  }
   .rpg-dialog {
-    width: 90%;
+    width: 100%;
     font-size: calc(1rem + 1vw);
   }
 }
