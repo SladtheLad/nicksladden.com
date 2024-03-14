@@ -80,22 +80,44 @@ const RPGDialog = ({ cards, children }: RPGDialogProps) => {
 
   return (
     <section className='container'>
-      {showCloseTextButton && !showFullText ? (
-        <button className='close-button' onClick={() => setShowFullText(true)}>
-          {currentCloseText}
-        </button>
-      ) : null}
-      {showFullText ? (
-        <article>
-          {cards.map((card) => (
-            <p key={card}>{card}</p>
-          ))}
-          <button
-            className='play-button'
-            onClick={() => setShowFullText(false)}
-            title='play-button'
-            aria-label='Play button to restart the RPG dialogue.'
-          >
+      <div
+        style={{
+          visibility:
+            showCloseTextButton || showFullText ? 'visible' : 'hidden',
+          display: 'flex',
+          flexDirection: 'column',
+          gap: '1rem',
+          width: '100%',
+          position: 'absolute',
+          top: '0',
+        }}
+      >
+        <button
+          className='play-button'
+          onClick={() => setShowFullText((prev) => !prev)}
+          aria-label={
+            showFullText
+              ? 'Play button to restart the RPG dialogue.'
+              : 'Close button to end the dialogue and read full text'
+          }
+        >
+          {showCloseTextButton && !showFullText ? (
+            <svg
+              xmlns='http://www.w3.org/2000/svg'
+              width='24'
+              height='24'
+              viewBox='0 0 24 24'
+              fill='none'
+              stroke='currentColor'
+              strokeWidth='2'
+              strokeLinecap='round'
+              strokeLinejoin='round'
+              className='lucide lucide-x'
+            >
+              <path d='M18 6 6 18' />
+              <path d='m6 6 12 12' />
+            </svg>
+          ) : showFullText ? (
             <svg
               xmlns='http://www.w3.org/2000/svg'
               width='24'
@@ -110,7 +132,19 @@ const RPGDialog = ({ cards, children }: RPGDialogProps) => {
             >
               <polygon points='6 3 20 12 6 21 6 3' />
             </svg>
-          </button>
+          ) : null}
+        </button>
+        {showCloseTextButton && !showFullText ? (
+          <p style={{ position: 'absolute', top: '4rem' }}>
+            {currentCloseText}
+          </p>
+        ) : null}
+      </div>
+      {showFullText ? (
+        <article>
+          {cards.map((card) => (
+            <p key={card}>{card}</p>
+          ))}
         </article>
       ) : (
         <button className='rpg-dialog' onClick={handleNext}>

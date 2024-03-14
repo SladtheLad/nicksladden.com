@@ -4,6 +4,7 @@
   place-items: center;
   place-content: center;
   position: relative;
+  width: fit-content;
 }
 
 article {
@@ -82,11 +83,12 @@ article {
 .play-button {
   padding: 0.3rem;
   border: var(--corner-border-width) solid #0000;
-  top: 2.5%;
   font-size: inherit;
   display: flex;
   place-content: center;
   place-items: center;
+  height: fit-content;
+  width: fit-content;
 }
 @keyframes jumpInfinite {
   0% {
