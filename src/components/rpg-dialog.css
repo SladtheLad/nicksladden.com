@@ -4,7 +4,7 @@
   place-items: center;
   place-content: center;
   position: relative;
-  width: fit-content;
+  max-width: 650px;
 }
 
 article {
@@ -13,7 +13,7 @@ article {
   overflow: auto;
   height: 80dvh;
   p {
-    margin: 0.5rem auto;
+    margin: 1rem auto;
   }
 }
 
