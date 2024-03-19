@@ -10,6 +10,20 @@ import favicon from '../images/favicon.ico';
     <meta name='viewport' content='width=device-width' />
     <meta name='generator' content={Astro.generator} />
     <link rel='icon' type='image/x-icon' href={favicon} />
+    <link
+      rel='preload'
+      href='/public/fonts/commitmono-400-regular-webfont.woff2'
+      as='font'
+      type='font/woff2'
+      crossorigin
+    />
+    <link
+      rel='preload'
+      href='/public/fonts/commitmono-700-regular-webfont.woff2'
+      as='font'
+      type='font/woff2'
+      crossorigin
+    />
     <title>{title}</title>
     <ViewTransitions />
   </head>
