@@ -6,6 +6,6 @@ import vercel from '@astrojs/vercel/static';
 export default defineConfig({
   // Enable React to support React JSX components.
   integrations: [react()],
-  output: 'static',
+  output: 'server',
   adapter: vercel({ webAnalytics: { enabled: true } }),
 });
