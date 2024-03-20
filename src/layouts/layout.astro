@@ -9,6 +9,17 @@ import favicon from '../images/favicon.ico';
     <meta charset='utf-8' />
     <meta name='viewport' content='width=device-width, initial-scale=1' />
     <meta name='generator' content={Astro.generator} />
+    <meta
+      name='description'
+      content='Philosophy student turned Web Developer - primarily focused on Front-end, UI/UX Engineering, design systems, and building component libraries.'
+    />
+    <meta
+      property='og:description'
+      content='Philosophy student turned Web Developer - primarily focused on Front-end, UI/UX Engineering, design systems, and building component libraries.'
+    />
+    <meta property='og:title' content='Nick Sladden' />
+    <meta property='og:url' content='https://www.nicksladden.com' />
+    <meta property='og:type' content='website' />
     <link rel='icon' type='image/x-icon' href={favicon} />
     <link
       rel='preload'
@@ -25,8 +36,9 @@ import favicon from '../images/favicon.ico';
       crossorigin='anonymous'
     />
     <title>{title}</title>
-    <ViewTransitions />
   </head>
+
+  <ViewTransitions />
 
   <body>
     <nav>
@@ -35,7 +47,9 @@ import favicon from '../images/favicon.ico';
         <li><a href='/portfolio'>Portfolio</a></li>
       </ul>
     </nav>
-    <main><slot /></main>
+    <main>
+      <slot />
+    </main>
 
     <style scoped>
       nav {
@@ -187,7 +201,8 @@ import favicon from '../images/favicon.ico';
         max-width: 75rem;
         margin-left: auto;
         margin-right: auto;
-        height: 100dvh;
+        height: 100%;
+        min-height: 100dvh;
         position: relative;
 
         @media screen and (max-width: 768px) {
