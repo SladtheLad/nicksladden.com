@@ -1,4 +1,4 @@
-// shamelessly taken from https://codepen.io/Mamboleoo/pen/QWEpLqm https://css-tricks.com/how-to-animate-the-details-element-using-waapi/
+// lovingly taken from https://codepen.io/Mamboleoo/pen/QWEpLqm https://css-tricks.com/how-to-animate-the-details-element-using-waapi/
 
 class Accordion {
   constructor(el) {
