@@ -95,8 +95,10 @@ import favicon from '../images/favicon.ico';
         --accent: #ffb980;
         @media (color-gamut: p3) {
           --accent: color(display-p3 1 0.72549 0.501961 / 1);
+          --background-color: color(display-p3 0.109804 0.113725 0.141176 / 1);
           @supports (color: oklch(0 0 0)) {
             --accent: oklch(83.87% 0.1382 59.69);
+            --background-color: oklch(23.28% 0.014 278.88);
           }
         }
       }
