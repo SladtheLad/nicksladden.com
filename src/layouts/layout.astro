@@ -85,10 +85,7 @@ import favicon from '../images/favicon.ico';
         }
       }
 
-      * {
-        box-sizing: border-box;
-        padding: 0;
-        margin: 0;
+      :root {
         --foreground-color: #e9efff;
         --header-color: #8a9192;
         --content-color: #ced7d8;
@@ -96,9 +93,19 @@ import favicon from '../images/favicon.ico';
         --background-color: #1c1d24;
         --link-color: var(--header-color);
         --accent: #ffb980;
-        accent-color: var(--accent);
-        outline-color: var(--accent);
+        @media (color-gamut: p3) {
+          --accent: color(display-p3 1 0.72549 0.501961 / 1);
+          @supports (color: oklch(0 0 0)) {
+            --accent: oklch(83.87% 0.1382 59.69);
+          }
+        }
+      }
 
+      * {
+        box-sizing: border-box;
+        padding: 0;
+        margin: 0;
+        accent-color: var(--accent);
         /* Cornered border variables */
         --corner-border-thickness: 2px; /* thickness of the border */
         --corner-border-color: var(--border-color); /* color of the border */
