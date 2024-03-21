@@ -38,17 +38,7 @@ import { Image } from 'astro:assets';
   {
     image ? (
       <div class='image'>
-        <Image
-          src={image.src}
-          alt={image.alt}
-          title={image.alt}
-          style={{
-            objectFit: 'none',
-            zoom: '100%',
-            width: '100%',
-            maxHeight: '20dvh',
-          }}
-        />
+        <Image src={image.src} alt={image.alt} title={image.alt} />
       </div>
     ) : null
   }
@@ -86,6 +76,17 @@ import { Image } from 'astro:assets';
     .image {
       margin-top: 1rem;
       width: 100%;
+      img {
+        object-fit: none;
+        zoom: 100%;
+        width: 100%;
+        max-height: 20dvh;
+        border-radius: 8px;
+        @media screen and (max-width: 768px) {
+          zoom: 50%;
+          max-height: 40dvh;
+        }
+      }
     }
   }
 
