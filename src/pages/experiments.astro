@@ -1,0 +1,22 @@
+---
+import Layout from '../layouts/layout.astro';
+import FolderTabs from '../components/FolderTabs/folder-tabs.tsx';
+---
+
+<Layout title='Experiments'>
+  <section>
+    <FolderTabs client:only />
+  </section>
+</Layout>
+
+<style>
+  section {
+    height: 100%;
+    width: 100%;
+    margin-block-start: 15%;
+    display: flex;
+    place-content: center;
+    place-items: center;
+    flex-direction: column;
+  }
+</style>
