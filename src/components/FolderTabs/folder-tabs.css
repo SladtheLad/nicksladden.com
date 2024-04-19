@@ -17,7 +17,6 @@ input {
   width: 100%;
   max-width: 1200px;
   height: 100%;
-  max-height: 800px;
 }
 
 .TabsList {
@@ -25,6 +24,7 @@ input {
   display: flex;
   flex-direction: column;
   height: fit-content;
+  transform: translate(-8px, 30px);
 }
 
 .TabsTrigger {
@@ -40,6 +40,7 @@ input {
   user-select: none;
   border-radius: 0;
   border: 1px solid var(--border-color);
+  background-color: var(--background-color);
   border-left: none;
   transform: rotate(180deg);
 }
@@ -48,34 +49,98 @@ input {
   border-bottom-color: var(--background-color);
 }
 .TabsTrigger:first-child {
+  border-bottom-right-radius: 10px;
   border-bottom-color: var(--border-color);
-  border-bottom-right-radius: 6px;
-}
-.TabsTrigger:last-child {
-  border-top-color: var(--border-color);
-  border-top-right-radius: 6px;
-}
-.TabsTrigger:hover {
-  border-color: var(--foreground-color);
-}
-.TabsTrigger[data-state='active'] {
-  color: var(--accent);
-  border-left: 1px solid var(--accent);
+  &::after {
+    content: '';
+    position: absolute;
+    width: 10px;
+    height: 20px;
+    background-color: var(--background-color);
+    z-index: 4;
+  }
 }
 
-.TabsTrigger:focus {
-  position: relative;
-  border-color: var(--accent);
+.TabsTrigger:last-child {
+  border-top-color: var(--border-color);
+  border-top-right-radius: 10px;
+  &::before {
+    content: '';
+    position: absolute;
+    width: 10px;
+    height: 20px;
+    background-color: var(--background-color);
+    z-index: 4;
+  }
 }
+
+.TabsTrigger[data-state='inactive']:first-child::after {
+  border: 1px solid var(--border-color);
+  bottom: -21px;
+  left: -9px;
+  border-top-left-radius: 10px;
+  border-width: 1px 0 0 1px;
+}
+
+.TabsTrigger[data-state='inactive']:last-child::before {
+  border: 1px solid var(--border-color);
+  top: -21px;
+  left: -9px;
+  border-bottom-left-radius: 10px;
+  border-width: 0 0 1px 1px;
+}
+/* .TabsTrigger:hover {
+  border-color: var(--foreground-color);
+} */
+.TabsTrigger[data-state='active'] {
+  color: var(--accent);
+  border-color: var(--accent);
+  border-bottom-right-radius: 10px;
+  border-top-right-radius: 10px;
+  z-index: 1;
+  /* border-left: 2px solid var(--background-color); */
+}
+
+.TabsTrigger[data-state='active']:before,
+.TabsTrigger[data-state='active']:after {
+  content: '';
+  position: absolute;
+  width: 10px;
+  height: 20px;
+  background-color: var(--background-color);
+  z-index: 4;
+}
+
+.TabsTrigger[data-state='active']:after,
+.TabsTrigger[data-state='active']:before {
+  border: 1px solid var(--accent);
+}
+
+.TabsTrigger[data-state='active']:before {
+  top: -21px;
+  left: -9px;
+  border-bottom-left-radius: 10px;
+  border-width: 0 0 1px 1px;
+}
+.TabsTrigger[data-state='active']:after {
+  bottom: -21px;
+  left: -9px;
+  border-top-left-radius: 10px;
+  border-width: 1px 0 0 1px;
+}
+
+/* TODO: find a way to clip the border of the content only
+  along the areas of the tabs */
 
 .TabsContent {
   flex-grow: 1;
   padding: 20px;
   border: 1px solid var(--border-color);
-  border-top-right-radius: 6px;
-  border-bottom-right-radius: 6px;
+  z-index: -1;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
   outline: none;
-  height: 800px;
+  height: 100%;
 }
 .TabsContent:focus {
 }
