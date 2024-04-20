@@ -74,7 +74,7 @@ input {
   }
 }
 
-.TabsTrigger[data-state='inactive']:first-child::after {
+.TabsTrigger:first-child::after {
   border: 1px solid var(--border-color);
   bottom: -21px;
   left: -9px;
@@ -82,7 +82,7 @@ input {
   border-width: 1px 0 0 1px;
 }
 
-.TabsTrigger[data-state='inactive']:last-child::before {
+.TabsTrigger:last-child::before {
   border: 1px solid var(--border-color);
   top: -21px;
   left: -9px;
@@ -131,6 +131,14 @@ input {
 
 /* TODO: find a way to clip the border of the content only
   along the areas of the tabs */
+
+.folder-clip {
+  position: relative;
+  overflow: hidden;
+  width: 2px;
+  background-color: var(--background-color);
+  z-index: 0;
+}
 
 .TabsContent {
   flex-grow: 1;
