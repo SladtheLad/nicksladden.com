@@ -87,22 +87,10 @@ import favicon from '../images/favicon.ico';
         }
       }
 
-      :root {
-        @media (color-gamut: p3) {
-          --accent: color(display-p3 1 0.72549 0.501961 / 1);
-          --background-color: color(display-p3 0.109804 0.113725 0.141176 / 1);
-          @supports (color: oklch(0 0 0)) {
-            --accent: oklch(83.87% 0.1382 59.69);
-            --background-color: oklch(23.28% 0.014 278.88);
-          }
-        }
-      }
-
       * {
         box-sizing: border-box;
         padding: 0;
         margin: 0;
-        accent-color: var(--accent);
         /* Cornered border variables */
         --corner-border-thickness: 2px; /* thickness of the border */
         --corner-border-color: var(--border-color); /* color of the border */
@@ -208,7 +196,10 @@ import favicon from '../images/favicon.ico';
         height: 100%;
         min-height: 100dvh;
         position: relative;
-        padding: 1rem;
+
+        @media screen and (max-width: 600px) {
+          padding: 1rem;
+        }
       }
 
       section {

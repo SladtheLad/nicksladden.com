@@ -1,0 +1,26 @@
+---
+import Layout from '../layouts/layout.astro';
+---
+
+<Layout title='Blog'>
+  <section>
+    <h1>My Astro Learning Blog</h1>
+    <p>This is where I will post about my journey learning Astro.</p>
+    <ul>
+      <li><a href='/posts/tab-folder-idea/'>Tab Folder Idea</a></li>
+    </ul>
+  </section>
+</Layout>
+
+<style>
+  section {
+    height: 700px;
+    width: 100%;
+    margin-block-start: auto;
+    margin-block-end: auto;
+    display: flex;
+    place-content: center;
+    place-items: center;
+    flex-direction: column;
+  }
+</style>

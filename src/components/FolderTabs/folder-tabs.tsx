@@ -1,8 +1,9 @@
 import * as Tabs from '@radix-ui/react-tabs';
 import './folder-tabs.css';
 import { useLayoutEffect, useRef, useState } from 'react';
+import SandpackEditor from '../Sandpack/sandpack-editor';
 
-const FolderTabs = () => {
+const FolderTabs = (props: any) => {
   const folderClipRef = useRef<HTMLDivElement | null>(null);
   const [folderClipHeight, setFolderClipHeight] = useState<number>(0);
   const [folderClipWidth, setFolderClipWidth] = useState<number>(0);
@@ -17,7 +18,7 @@ const FolderTabs = () => {
   }, []);
 
   return (
-    <Tabs.Root className='TabsRoot' orientation='vertical'>
+    <Tabs.Root className='TabsRoot' orientation='vertical' {...props}>
       <div
         style={{
           height: folderClipHeight + 20,
@@ -50,5 +51,23 @@ const FolderTabs = () => {
     </Tabs.Root>
   );
 };
+
+export const SandPackExample = () => (
+  <SandpackEditor
+    template='vite-react-ts'
+    customSetup={{ dependencies: { '@radix-ui/react-tabs': 'latest' } }}
+    files={{
+      '/App.js': `import ReactMarkdown from 'react-markdown' 
+
+export default function App() {
+  return (
+    <ReactMarkdown>
+      # Hello, *world*!
+    </ReactMarkdown>
+  )
+}`,
+    }}
+  />
+);
 
 export default FolderTabs;
