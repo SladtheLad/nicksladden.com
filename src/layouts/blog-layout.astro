@@ -1,0 +1,54 @@
+---
+import Layout from './layout.astro';
+---
+
+<Layout title='Blog'>
+  <article>
+    <slot />
+  </article>
+</Layout>
+
+<style scoped>
+  article {
+    height: 100%;
+    width: clamp(16rem, 93dvw, 75rem);
+    padding-block: 2rem;
+    gap: 1.5rem;
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    p {
+      padding-inline-start: 1rem;
+    }
+
+    p {
+      font-size: 0.9rem;
+      width: 100%;
+      max-inline-size: 68dvw;
+    }
+
+    h2 {
+      color: var(--header-color);
+      font-size: medium;
+      font-weight: normal;
+    }
+    ul {
+      padding-block: 2rem;
+    }
+
+    section {
+      height: 700px;
+      width: 100%;
+      margin-block-start: auto;
+      margin-block-end: auto;
+      display: flex;
+      place-content: flex-start;
+      place-items: flex-start;
+      flex-direction: column;
+    }
+  }
+</style>

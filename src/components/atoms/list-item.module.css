@@ -1,0 +1,14 @@
+.list {
+  list-style-type: disc;
+  li {
+    list-style-position: inside;
+  }
+  li::marker {
+    content: '\25A9';
+    font-size: 1rem;
+    color: var(--accent);
+  }
+  a {
+    padding-inline: 0.5rem;
+  }
+}

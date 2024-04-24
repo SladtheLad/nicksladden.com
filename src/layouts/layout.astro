@@ -45,13 +45,14 @@ import favicon from '../images/favicon.ico';
       <ul>
         <li><a href='/'>Home</a></li>
         <li><a href='/portfolio'>Portfolio</a></li>
+        <li><a href='/blog'>Blog</a></li>
       </ul>
     </nav>
     <main>
       <slot />
     </main>
 
-    <style scoped>
+    <style>
       @import '../styles/variables.css';
 
       nav {
@@ -171,6 +172,10 @@ import favicon from '../images/favicon.ico';
         font-weight: normal;
       }
 
+      h1 {
+        font-size: 2rem;
+      }
+
       button {
         font-family: CommitMono;
         font-weight: normal;
@@ -213,6 +218,9 @@ import favicon from '../images/favicon.ico';
       a {
         color: var(--link-color);
         text-decoration: underline;
+        &:hover {
+          color: var(--accent);
+        }
       }
 
       pre {
@@ -221,6 +229,12 @@ import favicon from '../images/favicon.ico';
         margin: 0;
         width: auto;
         padding: 0.25rem;
+      }
+
+      ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
       }
     </style>
   </body>
