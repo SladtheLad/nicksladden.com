@@ -11,7 +11,7 @@ import Layout from './layout.astro';
 <style scoped>
   article {
     height: 100%;
-    width: clamp(16rem, 93dvw, 75rem);
+    width: clamp(16rem, 50dvw, 45rem);
     padding-block: 2rem;
     gap: 1.5rem;
 
@@ -41,7 +41,6 @@ import Layout from './layout.astro';
     }
 
     section {
-      height: 700px;
       width: 100%;
       margin-block-start: auto;
       margin-block-end: auto;
@@ -49,6 +48,12 @@ import Layout from './layout.astro';
       place-content: flex-start;
       place-items: flex-start;
       flex-direction: column;
+    }
+  }
+
+  @media screen and (max-width: 600px) {
+    article {
+      width: 100%;
     }
   }
 </style>

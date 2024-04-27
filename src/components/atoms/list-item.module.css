@@ -12,3 +12,15 @@
     padding-inline: 0.5rem;
   }
 }
+
+.blog_list {
+  padding: 2rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  list-style: none;
+  width: 100%;
+  height: auto;
+  justify-items: center;
+  align-items: center;
+  grid-gap: 2rem;
+}

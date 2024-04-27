@@ -1,14 +1,28 @@
 ---
 import BlogLayout from '../layouts/blog-layout.astro';
 import listStyles from '../components/atoms/list-item.module.css';
+import BlogPostOreillyCard from '../components/blog-post-oreilly-card.astro';
 ---
 
 <BlogLayout>
-  <section>
+  <section transition:animate='fade'>
     <h1>A Design Engineer's Blog</h1>
     <h2>Sometimes, I will post hot takes here.</h2>
-    <ul class={listStyles.list}>
-      <li><a href='/blog/tab-folder-idea/'>Tab Folder Idea</a></li>
+  </section>
+  <section transition:animate='fade'>
+    <ul class={listStyles.blog_list}>
+      <li>
+        <BlogPostOreillyCard title='This is a blog post title' link='/blog' />
+      </li>
+      <li>
+        <BlogPostOreillyCard title='This is a blog post title' link='/blog' />
+      </li>
+      <li>
+        <BlogPostOreillyCard title='This is a blog post title' link='/blog' />
+      </li>
+      <li>
+        <BlogPostOreillyCard title='This is a blog post title' link='/blog' />
+      </li>
     </ul>
   </section>
 </BlogLayout>
