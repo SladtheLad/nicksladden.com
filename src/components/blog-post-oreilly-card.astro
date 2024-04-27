@@ -1,72 +1,127 @@
 ---
-const { link, title } = Astro.props;
+const { altText, name, link, title, imagePath } = Astro.props;
+import AnimalSprites from './Animals/animal-sprites.astro';
+
+interface Props {
+  imagePath: string;
+  altText?: string;
+  // name: string;
+  link: string;
+  title: string;
+}
 ---
 
 <a href={link}>
   <div class='oreilly-blog-card'>
     <span class='top-bar'></span>
     <!-- <span class='side-sticker'></span> -->
-    <span class='title'>{title}</span>
+    <div class='title-container'><span class='title'>{title}</span></div>
+    <AnimalSprites icon='skunk' />
   </div>
-</a>
 
-<style scoped>
-  a {
-    text-decoration: none;
-    outline: none;
+  <style scoped>
+    a {
+      text-decoration: none;
+      outline: none;
+      height: 100%;
+      width: 100%;
+      position: relative;
+      z-index: 4;
+    }
 
-    &:focus {
+    .oreilly-blog-card {
+      text-decoration: none;
+      color: var(--header-color);
+
+      transition: all 0.2s;
+      border-radius: var(--border-radius);
+      background-color: var(--background-color);
+      border: 1px solid var(--border-color);
+      border-radius: var(--border-radius);
+      display: flex;
+      flex-direction: column;
+      height: 30dvh;
+      width: 20dvw;
+      padding: 1rem;
+
+      span.top-bar {
+        background-color: var(--accent);
+        opacity: 0.6;
+        position: relative;
+        display: block;
+        height: 4px;
+        width: 100%;
+        top: -18px;
+      }
+
+      div.title-container {
+        background-color: var(--accent);
+        opacity: 0.6;
+        color: var(--background-color);
+        padding-inline: 1rem;
+        padding-block: 0.5rem;
+        font-size: 1.25rem;
+        font-weight: 700;
+        line-height: 1.2;
+        min-height: 8dvh;
+        text-align: left;
+        display: flex;
+        flex-basis: content;
+        align-items: center;
+        margin-top: 2rem;
+      }
+
+      span.title {
+        max-width: 70%;
+      }
+      span.side-sticker {
+        background-color: var(--header-color);
+        top: 0;
+        position: relative;
+        display: block;
+        height: 2rem;
+        width: 40%;
+        right: -75%;
+        overflow: hidden;
+        transform: rotate(45deg);
+        z-index: -1;
+      }
+    }
+    svg {
+      position: absolute;
+      right: 4%;
+      transform: scale(1) translate(0%, 0%);
+      transition: all ease-in-out 0.2s;
+      fill: var(--background-color);
+      .icon-outline {
+        color: var(--icon-primary);
+      }
+      .icon-secondary {
+        color: var(--icon-secondary);
+      }
+      .icon-fill-primary {
+        color: var(--icon-fill-primary);
+      }
+      .icon-tertiary {
+        color: var(--icon-tertiary);
+      }
+      .icon-quaternary {
+        color: var(--icon-quaternary);
+      }
+    }
+    a:focus,
+    a:hover {
       .oreilly-blog-card {
+        div.title-container {
+          opacity: 1;
+        }
         span.top-bar {
-          background-color: var(--accent);
           opacity: 1;
         }
       }
+      svg {
+        transform: scale(1.2) translate(-8%, -7%);
+      }
     }
-  }
-
-  .oreilly-blog-card {
-    text-decoration: none;
-    color: var(--header-color);
-    font-size: 1.1rem;
-    font-weight: 700;
-    transition: color 0.2s;
-    border-radius: var(--border-radius);
-    background-color: var(--background-color);
-    border: 1px solid var(--border-color);
-    border-radius: var(--border-radius);
-    display: flex;
-    flex-direction: column;
-    height: 30dvh;
-    width: 20dvw;
-    padding: 1rem;
-
-    span.top-bar {
-      background-color: var(--accent);
-      opacity: 0.6;
-      position: relative;
-      display: block;
-      height: 4px;
-      width: 100%;
-      top: -18px;
-    }
-    span.side-sticker {
-      background-color: var(--header-color);
-      top: 0;
-      position: relative;
-      display: block;
-      height: 2rem;
-      width: 40%;
-      right: -75%;
-      overflow: hidden;
-      transform: rotate(45deg);
-      z-index: -1;
-    }
-  }
-  a {
-    height: 100%;
-    width: 100%;
-    position: relative;
-    z-index: 4;
-  }
-</style>
+  </style>
+</a>
