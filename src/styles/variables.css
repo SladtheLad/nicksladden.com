@@ -6,7 +6,7 @@
   --background-color: #1c1d24;
   --link-color: var(--header-color);
   --accent: #ffb980;
-  --icon-fill-primary: var(--background-color);
+  --icon-fill-primary: #484849;
   --icon-primary: var(--background-color);
   --icon-secondary: var(--content-color);
   --icon-tertiary: #4a4a4a;
