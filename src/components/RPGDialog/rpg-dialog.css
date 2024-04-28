@@ -35,7 +35,7 @@ article {
   text-align: start;
   position: relative;
   font-family: inherit;
-  line-height: 2.25rem;
+  line-height: 1.35;
 
   svg {
     position: absolute;
