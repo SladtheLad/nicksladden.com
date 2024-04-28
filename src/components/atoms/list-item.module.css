@@ -23,4 +23,11 @@
   justify-items: center;
   align-items: center;
   grid-gap: 2rem;
+
+  @media screen and (max-width: 768px) {
+    grid-template-columns: 1fr;
+    li {
+      width: 100%;
+    }
+  }
 }

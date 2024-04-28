@@ -74,13 +74,13 @@ interface Props extends AstroBuiltinProps {
       span.title {
         font-size: 2rem;
         font-weight: 700;
-        line-height: 1.2;
+        /* line-height: 1.2; */
         max-width: 70%;
       }
       span.subtitle {
         font-size: 0.8rem;
-        line-height: 1.2;
-        margin-block: 1rem;
+        /* line-height: 1.5; */
+        margin-block: 2rem;
       }
       span.side-sticker {
         background-color: var(--header-color);
@@ -93,6 +93,20 @@ interface Props extends AstroBuiltinProps {
         overflow: hidden;
         transform: rotate(45deg);
         z-index: -1;
+      }
+
+      @media screen and (max-width: 768px) {
+        width: 100%;
+        height: 40dvh;
+        /* div.title-container {
+          margin-top: 0;
+        }
+        span.top-bar {
+          top: -1rem;
+        } */
+        span.subtitle {
+          font-size: 1rem;
+        }
       }
     }
     svg {
