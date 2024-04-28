@@ -3,7 +3,6 @@ import BlogLayout from '../layouts/blog-layout.astro';
 import listStyles from '../components/atoms/list-item.module.css';
 import BlogPostOreillyCard from '../components/blog-post-oreilly-card.astro';
 const blogPosts = await Astro.glob('../pages/blog/*.mdx');
-console.log(blogPosts[0].frontmatter);
 ---
 
 <BlogLayout>
