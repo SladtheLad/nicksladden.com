@@ -29,6 +29,7 @@
     "typescript": "^5.3.3"
   },
   "devDependencies": {
-    "node-html-parser": "^6.1.13"
+    "node-html-parser": "^6.1.13",
+    "remark-frontmatter": "^5.0.0"
   }
 }

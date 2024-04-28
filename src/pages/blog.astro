@@ -2,43 +2,29 @@
 import BlogLayout from '../layouts/blog-layout.astro';
 import listStyles from '../components/atoms/list-item.module.css';
 import BlogPostOreillyCard from '../components/blog-post-oreilly-card.astro';
+const blogPosts = await Astro.glob('../pages/blog/*.mdx');
+console.log(blogPosts[0].frontmatter);
 ---
 
 <BlogLayout>
-  <section transition:animate='fade'>
+  <section>
     <h1>A Design Engineer's Blog</h1>
     <h2>Sometimes, I will post hot takes here.</h2>
   </section>
-  <section transition:animate='fade'>
+  <section>
     <ul class={listStyles.blog_list}>
-      <li>
-        <BlogPostOreillyCard
-          imagePath='/src/images/skunk.svg'
-          title='This is a blog post title'
-          link='/blog/tab-folder-idea'
-        />
-      </li>
-      <li>
-        <BlogPostOreillyCard
-          imagePath='/src/images/skunk.svg'
-          title='This is a blog post title'
-          link='/blog/tab-folder-idea'
-        />
-      </li>
-      <li>
-        <BlogPostOreillyCard
-          imagePath='/src/images/skunk.svg'
-          title='This is a blog post title'
-          link='/blog/tab-folder-idea'
-        />
-      </li>
-      <li>
-        <BlogPostOreillyCard
-          imagePath='/src/images/skunk.svg'
-          title='This is a blog post title'
-          link='/blog/tab-folder-idea'
-        />
-      </li>
+      {
+        blogPosts.map((post) => (
+          <li>
+            <BlogPostOreillyCard
+              animalIcon='skunk'
+              title={post.frontmatter.title}
+              subtitle={post.frontmatter.subtitle}
+              link={post.url}
+            />
+          </li>
+        ))
+      }
     </ul>
   </section>
 </BlogLayout>

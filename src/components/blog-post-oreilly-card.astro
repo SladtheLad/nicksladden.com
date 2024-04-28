@@ -1,12 +1,14 @@
 ---
-const { altText, name, link, title, imagePath } = Astro.props;
+const { altText, name, link, title, subtitle, animalIcon } = Astro.props;
+import type { AstroBuiltinProps } from 'astro';
 import AnimalSprites from './Animals/animal-sprites.astro';
 
-interface Props {
-  imagePath: string;
+interface Props extends AstroBuiltinProps {
+  animalIcon: string;
   altText?: string;
   name?: string;
-  link: string;
+  link: string | undefined;
+  subtitle: string | undefined;
   title: string;
 }
 ---
@@ -16,7 +18,8 @@ interface Props {
     <span class='top-bar'></span>
     <!-- <span class='side-sticker'></span> -->
     <div class='title-container'><span class='title'>{title}</span></div>
-    <AnimalSprites icon='skunk' />
+    <AnimalSprites icon={animalIcon} />
+    <span class='subtitle'>{subtitle}</span>
   </div>
 
   <style scoped>
@@ -60,11 +63,8 @@ interface Props {
         color: var(--background-color);
         padding-inline: 1rem;
         padding-block: 0.5rem;
-        font-size: 1.25rem;
-        font-weight: 700;
-        line-height: 1.2;
+
         min-height: 8dvh;
-        text-align: left;
         display: flex;
         flex-basis: content;
         align-items: center;
@@ -72,7 +72,15 @@ interface Props {
       }
 
       span.title {
+        font-size: 2rem;
+        font-weight: 700;
+        line-height: 1.2;
         max-width: 70%;
+      }
+      span.subtitle {
+        font-size: 0.8rem;
+        line-height: 1.2;
+        margin-block: 1rem;
       }
       span.side-sticker {
         background-color: var(--header-color);
@@ -89,11 +97,16 @@ interface Props {
     }
     svg {
       position: absolute;
-      right: 4%;
-      transform: scale(1) translate(0%, 0%);
+      right: 0;
+      top: 0;
+      transform: scale(1) translate(0%, 0%) rotate(0);
       transition: all ease-in-out 0.2s;
       fill: var(--background-color);
+      font-size: var(--icon-size-1);
       .icon-outline {
+        color: var(--icon-outline);
+      }
+      .icon-primary {
         color: var(--icon-primary);
       }
       .icon-secondary {
@@ -108,6 +121,9 @@ interface Props {
       .icon-quaternary {
         color: var(--icon-quaternary);
       }
+      .icon-quinary {
+        color: var(--icon-quinary);
+      }
     }
     a:focus,
     a:hover {
@@ -120,7 +136,7 @@ interface Props {
         }
       }
       svg {
-        transform: scale(1.2) translate(-8%, -7%);
+        transform: scale(1.2) translate(-8%, -7%) rotate(20deg);
       }
     }
   </style>
