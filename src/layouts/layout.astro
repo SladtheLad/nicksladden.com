@@ -92,6 +92,7 @@ import favicon from '../images/favicon.ico';
         box-sizing: border-box;
         padding: 0;
         margin: 0;
+
         /* Cornered border variables */
         --corner-border-thickness: 2px; /* thickness of the border */
         --corner-border-color: var(--border-color); /* color of the border */
@@ -235,6 +236,20 @@ import favicon from '../images/favicon.ico';
         list-style: none;
         padding: 0;
         margin: 0;
+      }
+
+      a,
+      button {
+        transition: all 0.2s ease-in-out;
+        &:focus,
+        &:hover,
+        &:focus-visible,
+        &:active {
+          outline-style: solid;
+          outline-color: var(--accent);
+          outline-width: 2px;
+          border-radius: var(--border-radius);
+        }
       }
     </style>
   </body>

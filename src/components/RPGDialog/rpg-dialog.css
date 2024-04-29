@@ -21,8 +21,8 @@ article {
   background-color: inherit;
   color: inherit;
   display: inline-flex;
-  border: 2px solid var(--foreground-color);
-  border-radius: var(--border-radius-2);
+  border: 2px solid var(--border-color);
+  border-radius: var(--border-radius);
   padding: 2rem;
   cursor: pointer;
   outline-offset: var(--border-radius-2);
@@ -36,6 +36,11 @@ article {
   position: relative;
   font-family: inherit;
   line-height: 1.35;
+
+  &:hover,
+  &:focus-visible {
+    border-color: var(--accent);
+  }
 
   svg {
     position: absolute;

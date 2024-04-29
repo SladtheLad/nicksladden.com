@@ -9,6 +9,8 @@ tags: ['blogging', 'learning in public', 'components']
 
 import FolderTabs from '../../components/FolderTabs/folder-tabs';
 import ExperimentsContainer from '../../components/ExperimentsContainer/experiments-container.astro';
+import { Image } from 'astro:assets';
+import ManillaFolder from '../../images/blog/Manilla-Folder.png';
 
 # Tab Folder Idea
 
@@ -17,6 +19,61 @@ import ExperimentsContainer from '../../components/ExperimentsContainer/experime
 I know there have been tons of similar ideas to recreate a folder structure with tabs.
 But I wanted to try it out myself in this simple aesthethic I'm sort of building up as I go with this new website.
 
+#### Examples I found
+
+<Image
+  style={{
+    height: '100%',
+    width: '100%',
+    margin: '0 auto',
+    display: 'block',
+  }}
+  src={ManillaFolder}
+  alt='Manilla Folder example from https://phoenixweb.com.au/rounded-manila-folder-style-menu-tabs-using-css-triangles/'
+/>
+<p
+  class='codepen'
+  data-height='300'
+  data-default-tab='html,result'
+  data-slug-hash='GzEdpw'
+  data-user='jamesjones'
+  style='height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;'
+>
+  <span>
+    See the Pen
+    <a href='https://codepen.io/jamesjones/pen/GzEdpw'>Curved Tabs</a> by James Jones
+    (<a href='https://codepen.io/jamesjones'>@jamesjones</a>) on
+    <a href='https://codepen.io'>CodePen</a>.
+  </span>
+</p>
+<script async src='https://cpwebassets.codepen.io/assets/embed/ei.js'></script>
+---
+<p
+  class='codepen'
+  data-height='300'
+  data-default-tab='html,result'
+  data-slug-hash='jzzyvB'
+  data-user='uffou'
+  style='height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;'
+>
+  <span>
+    See the Pen
+    <a href='https://codepen.io/uffou/pen/jzzyvB'>Cool CSS Folder Tabs</a> by Vasil
+    Enchev (<a href='https://codepen.io/uffou'>@uffou</a>) on
+    <a href='https://codepen.io'>CodePen</a>.
+  </span>
+</p>{<script async src='https://cpwebassets.codepen.io/assets/embed/ei.js'></script>}
+
+---
+
+## Using RadixUI and a trimmed design
+
+Write some stuff here about the design and the implementation.
+
 <ExperimentsContainer>
   <FolderTabs client:only />
 </ExperimentsContainer>
+
+###### References
+
+- [Rounded Manilla Folder Style Menu Tabs](https://phoenixweb.com.au/rounded-manila-folder-style-menu-tabs-using-css-triangles/)

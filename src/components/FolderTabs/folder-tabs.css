@@ -43,6 +43,14 @@ input {
   background-color: var(--background-color);
   border-left: none;
   transform: rotate(180deg);
+
+  &:hover,
+  &:focus-visible,
+  &:focus,
+  &:active {
+    outline: none;
+    border-radius: 0;
+  }
 }
 .TabsTrigger[data-state='inactive'] {
   border-top-color: var(--background-color);
