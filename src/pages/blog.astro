@@ -2,7 +2,10 @@
 import BlogLayout from '../layouts/blog-layout.astro';
 import listStyles from '../components/atoms/list-item.module.css';
 import BlogPostOreillyCard from '../components/blog-post-oreilly-card.astro';
-const blogPosts = await Astro.glob('../pages/blog/*.mdx');
+
+import { getCollection } from 'astro:content';
+
+const blogPosts = await getCollection('blog');
 ---
 
 <BlogLayout>
@@ -17,10 +20,13 @@ const blogPosts = await Astro.glob('../pages/blog/*.mdx');
           <li>
             <BlogPostOreillyCard
               animalIcon='skunk'
-              title={post.frontmatter.title}
-              subtitle={post.frontmatter.subtitle}
-              link={post.url}
+              title={post.data.title}
+              subtitle={post.data.subtitle}
+              link={`/posts/${post.slug}`}
             />
+            {post.data.tags.map((tag) => (
+              <span>{`${tag}`}</span>
+            ))}
           </li>
         ))
       }

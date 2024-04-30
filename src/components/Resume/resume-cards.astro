@@ -154,12 +154,13 @@ import listStyles from '../atoms/list-item.module.css';
     font-size: 1.75rem;
     cursor: pointer;
 
-    &:hover {
-      --corner-border-color: var(--accent);
-    }
-
+    &:hover,
+    &:focus,
     &:focus-visible {
+      color: var(--accent);
       --corner-border-color: var(--accent);
+      border-radius: var(--border-radius);
+      outline: 2px solid var(--accent);
     }
   }
 
@@ -182,7 +183,7 @@ import listStyles from '../atoms/list-item.module.css';
 
   details[open] summary {
     border-color: var(--accent);
-    outline-offset: 0.75rem;
+    outline-offset: var(--border-radius);
     svg {
       transform: rotateX(180deg);
     }

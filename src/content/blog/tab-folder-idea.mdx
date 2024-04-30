@@ -1,10 +1,9 @@
 ---
-layout: '../../layouts/blog-layout.astro'
 title: 'Tab Folder Idea'
 subtitle: 'What if manilla folder style UIs were great again?'
-# pubDate: 2022-07-01
+pubDate: 2024-04-30
 description: 'UI experiment with a folder structure and tabs for lists of content and filtering.'
-tags: ['blogging', 'learning in public', 'components']
+tags: ['blogging', 'learning in public', 'components', 'ui', 'design']
 ---
 
 import FolderTabs from '../../components/FolderTabs/folder-tabs';
@@ -14,12 +13,14 @@ import ManillaFolder from '../../images/blog/Manilla-Folder.png';
 
 # Tab Folder Idea
 
-### Let's be real. This is nothing knew.
+## Let's be real. This is nothing knew.
 
 I know there have been tons of similar ideas to recreate a folder structure with tabs.
 But I wanted to try it out myself in this simple aesthethic I'm sort of building up as I go with this new website.
 
-#### Examples I found
+---
+
+## Examples I found
 
 <Image
   style={{
@@ -62,18 +63,42 @@ But I wanted to try it out myself in this simple aesthethic I'm sort of building
     Enchev (<a href='https://codepen.io/uffou'>@uffou</a>) on
     <a href='https://codepen.io'>CodePen</a>.
   </span>
-</p>{<script async src='https://cpwebassets.codepen.io/assets/embed/ei.js'></script>}
+</p>
+{
+  <script
+    async
+    src='https://cpwebassets.codepen.io/assets/embed/ei.js'
+  ></script>
+}
 
 ---
 
 ## Using RadixUI and a trimmed design
 
-Write some stuff here about the design and the implementation.
+I'm using RadixUI for this just to have out-of-the-box accessibility controls and a simple way to manage the tabs.
+
+I wanted to build something that had a retro CRT/terminal aesthetic like the rest of the design aesthetic I'm going for in my site.
 
 <ExperimentsContainer>
-  <FolderTabs client:only />
+  <FolderTabs client:only defaultValue='Folder 1' />
 </ExperimentsContainer>
 
-###### References
+---
+
+## Experiment Yourself!
+
+Here's a codesandbox with the code for the folder tabs. Feel free to play around with it!
+
+<iframe
+  src='https://codesandbox.io/embed/mxts74?view=preview&module=%2Fsrc%2Fstyles.css'
+  style='width:100%; height: 500px; border:0; border-radius: 4px; overflow:hidden;'
+  title='comic-box-folders'
+  allow='accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking'
+  sandbox='allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts'
+></iframe>
+
+---
+
+#### References
 
 - [Rounded Manilla Folder Style Menu Tabs](https://phoenixweb.com.au/rounded-manila-folder-style-menu-tabs-using-css-triangles/)

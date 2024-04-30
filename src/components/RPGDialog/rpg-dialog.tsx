@@ -81,15 +81,10 @@ const RPGDialog = ({ cards, children }: RPGDialogProps) => {
   return (
     <section className='container'>
       <div
+        className='rpg-close-container'
         style={{
           visibility:
             showCloseTextButton || showFullText ? 'visible' : 'hidden',
-          display: 'flex',
-          flexDirection: 'column',
-          gap: '1rem',
-          width: '100%',
-          position: 'absolute',
-          top: '1rem',
         }}
       >
         <button
@@ -135,9 +130,7 @@ const RPGDialog = ({ cards, children }: RPGDialogProps) => {
           ) : null}
         </button>
         {showCloseTextButton && !showFullText ? (
-          <p style={{ position: 'absolute', top: '4rem' }}>
-            {currentCloseText}
-          </p>
+          <p>{currentCloseText}</p>
         ) : null}
       </div>
       {showFullText ? (

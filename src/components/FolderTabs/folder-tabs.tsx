@@ -3,7 +3,11 @@ import './folder-tabs.css';
 import { useLayoutEffect, useRef, useState } from 'react';
 import SandpackEditor from '../Sandpack/sandpack-editor';
 
-const FolderTabs = (props: any) => {
+interface FolderTabsProps extends Tabs.TabsProps {
+  defaultValue?: string;
+}
+
+const FolderTabs = ({ defaultValue, ...props }: FolderTabsProps) => {
   const folderClipRef = useRef<HTMLDivElement | null>(null);
   const [folderClipHeight, setFolderClipHeight] = useState<number>(0);
   const [folderClipWidth, setFolderClipWidth] = useState<number>(0);
@@ -18,7 +22,12 @@ const FolderTabs = (props: any) => {
   }, []);
 
   return (
-    <Tabs.Root className='TabsRoot' orientation='vertical' {...props}>
+    <Tabs.Root
+      defaultValue={defaultValue}
+      className='TabsRoot'
+      orientation='vertical'
+      {...props}
+    >
       <div
         style={{
           height: folderClipHeight + 20,

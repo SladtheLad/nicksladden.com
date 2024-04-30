@@ -13,7 +13,6 @@ article {
   overflow: auto;
   height: 80dvh;
   padding-inline: 1.25rem;
-  border-inline: 1px dashed var(--border-color);
   p {
     margin: 1rem auto;
   }
@@ -62,13 +61,23 @@ article {
   }
 }
 
+.rpg-close-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  width: 100%;
+  position: absolute;
+  height: fit-content;
+  position: absolute;
+  top: 2rem;
+  padding-inline: 1.25rem;
+}
 .close-button,
 .play-button {
   background-color: inherit;
   outline-offset: 4px;
   color: var(--foreground-color);
-  position: absolute;
-  top: 25%;
+
   --corner-border-width: 0.4rem;
   padding: calc(var(--corner-border-width) + var(--corner-border-thickness));
   border: var(--corner-border-thickness) solid #0000;
@@ -111,10 +120,22 @@ article {
 
 @media screen and (max-width: 768px) {
   .container {
-    width: 100%;
+    width: 100dvw;
+    padding-inline: 1rem;
+    height: 100%;
   }
   .rpg-dialog {
     width: 100%;
     font-size: calc(1rem + 1vw);
+  }
+  article {
+    height: 80dvh;
+    margin: 15ch auto;
+    border: none;
+    padding: 0;
+  }
+  .rpg-close-container {
+    top: 3rem;
+    padding-inline: 1rem;
   }
 }
