@@ -12,6 +12,8 @@ article {
   margin: 10ch auto;
   overflow: auto;
   height: 80dvh;
+  padding-inline: 1.25rem;
+  border-inline: 1px dashed var(--border-color);
   p {
     margin: 1rem auto;
   }
@@ -21,7 +23,7 @@ article {
   background-color: inherit;
   color: inherit;
   display: inline-flex;
-  border: 2px solid var(--border-color);
+  border: 2px dashed var(--border-color);
   border-radius: var(--border-radius);
   padding: 2rem;
   cursor: pointer;
