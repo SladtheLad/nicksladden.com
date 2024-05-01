@@ -1,7 +1,7 @@
 import * as Tabs from '@radix-ui/react-tabs';
 import './folder-tabs.css';
 import { useLayoutEffect, useRef, useState } from 'react';
-import SandpackEditor from '../Sandpack/sandpack-editor';
+// import SandpackEditor from '../Sandpack/sandpack-editor';
 
 interface FolderTabsProps extends Tabs.TabsProps {
   defaultValue?: string;
@@ -64,22 +64,22 @@ const FolderTabs = ({
   );
 };
 
-export const SandPackExample = () => (
-  <SandpackEditor
-    template='vite-react-ts'
-    customSetup={{ dependencies: { '@radix-ui/react-tabs': 'latest' } }}
-    files={{
-      '/App.js': `import ReactMarkdown from 'react-markdown' 
-
-export default function App() {
-  return (
-    <ReactMarkdown>
-      # Hello, *world*!
-    </ReactMarkdown>
-  )
-}`,
-    }}
-  />
-);
+// export const SandPackExample = () => (
+//   <SandpackEditor
+//     template='vite-react-ts'
+//     customSetup={{ dependencies: { '@radix-ui/react-tabs': 'latest' } }}
+//     files={{
+//       '/App.js': `import ReactMarkdown from 'react-markdown'
+//
+// export default function App() {
+//   return (
+//     <ReactMarkdown>
+//       # Hello, *world*!
+//     </ReactMarkdown>
+//   )
+// }`,
+//     }}
+//   />
+// );
 
 export default FolderTabs;

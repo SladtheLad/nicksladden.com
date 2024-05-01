@@ -8,7 +8,8 @@ export interface Props {
 function getSVG(name: string) {
   const filepath = `/src/images/svg/${name}.svg`;
   const files = import.meta.glob<string>('/src/images/svg/**/*.svg', {
-    as: 'raw',
+    query: '?raw',
+    import: 'default',
     eager: true,
   });
 

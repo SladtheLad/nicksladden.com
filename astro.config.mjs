@@ -1,7 +1,7 @@
 import { defineConfig } from 'astro/config';
 import react from '@astrojs/react';
 import vercel from '@astrojs/vercel/static';
-import { remarkSandpack } from 'remark-sandpack';
+// import { remarkSandpack } from 'remark-sandpack';
 import remarkFrontmatter from 'remark-frontmatter';
 
 import mdx from '@astrojs/mdx';
@@ -12,7 +12,10 @@ export default defineConfig({
   integrations: [
     react(),
     mdx({
-      remarkPlugins: [remarkFrontmatter, remarkSandpack],
+      remarkPlugins: [
+        remarkFrontmatter,
+        //  remarkSandpack
+      ],
       optimize: true,
     }),
   ],
