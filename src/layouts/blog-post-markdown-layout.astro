@@ -2,7 +2,7 @@
 import Layout from './layout.astro';
 ---
 
-<Layout title=`A Design Engineer's Blog`>
+<Layout>
   <article>
     <slot />
   </article>
@@ -11,19 +11,12 @@ import Layout from './layout.astro';
 <style>
   article {
     height: auto;
-    min-height: 100dvh;
-    width: clamp(16rem, 70dvw, 85rem);
-    padding-block: 2rem;
-    display: grid;
-    gap: 1.25rem;
+    width: clamp(16rem, 50dvw, 60rem);
+    padding: 2rem;
     border-inline: 3px dashed var(--border-color);
-    grid-template-columns: minmax(1rem, 0.5fr) repeat(12, 1fr) minmax(
-        1rem,
-        0.5fr
-      );
-    grid-template-rows: 0.5fr 100%;
-    grid-column-gap: 0px;
-    grid-row-gap: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
     section {
       margin-left: auto;
       margin-right: auto;

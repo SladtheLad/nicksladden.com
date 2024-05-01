@@ -1,14 +1,13 @@
 ---
 title: 'Tab Folder Idea'
 subtitle: 'What if manilla folder style UIs were great again?'
-pubDate: 2024-04-30
+pubDate: 2024-05-01
 description: 'UI experiment with a folder structure and tabs for lists of content and filtering.'
 tags: ['blogging', 'learning in public', 'components', 'ui', 'design']
 ---
 
 import FolderTabs from '../../components/FolderTabs/folder-tabs';
 import ExperimentsContainer from '../../components/ExperimentsContainer/experiments-container.astro';
-import { Image } from 'astro:assets';
 import ManillaFolder from '../../images/blog/Manilla-Folder.png';
 
 # Tab Folder Idea
@@ -22,19 +21,9 @@ But I wanted to try it out myself in this simple aesthethic I'm sort of building
 
 ## Examples I found
 
-<Image
-  style={{
-    height: '100%',
-    width: '100%',
-    margin: '0 auto',
-    display: 'block',
-  }}
-  src={ManillaFolder}
-  alt='Manilla Folder example from https://phoenixweb.com.au/rounded-manila-folder-style-menu-tabs-using-css-triangles/'
-/>
 <p
   class='codepen'
-  data-height='300'
+  data-height='400'
   data-default-tab='html,result'
   data-slug-hash='GzEdpw'
   data-user='jamesjones'
@@ -51,7 +40,7 @@ But I wanted to try it out myself in this simple aesthethic I'm sort of building
 ---
 <p
   class='codepen'
-  data-height='300'
+  data-height='400'
   data-default-tab='html,result'
   data-slug-hash='jzzyvB'
   data-user='uffou'
@@ -64,12 +53,7 @@ But I wanted to try it out myself in this simple aesthethic I'm sort of building
     <a href='https://codepen.io'>CodePen</a>.
   </span>
 </p>
-{
-  <script
-    async
-    src='https://cpwebassets.codepen.io/assets/embed/ei.js'
-  ></script>
-}
+{<script async src='https://cpwebassets.codepen.io/assets/embed/ei.js'></script>}
 
 ---
 
@@ -80,7 +64,7 @@ I'm using RadixUI for this just to have out-of-the-box accessibility controls an
 I wanted to build something that had a retro CRT/terminal aesthetic like the rest of the design aesthetic I'm going for in my site.
 
 <ExperimentsContainer>
-  <FolderTabs client:only defaultValue='Folder 1' />
+  <FolderTabs client:only />
 </ExperimentsContainer>
 
 ---
@@ -91,7 +75,7 @@ Here's a codesandbox with the code for the folder tabs. Feel free to play around
 
 <iframe
   src='https://codesandbox.io/embed/mxts74?view=preview&module=%2Fsrc%2Fstyles.css'
-  style='width:100%; height: 500px; border:0; border-radius: 4px; overflow:hidden;'
+  style='width:100%; height: 100%; min-height: 600px; border:0; border-radius: 4px; overflow:hidden;'
   title='comic-box-folders'
   allow='accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking'
   sandbox='allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts'

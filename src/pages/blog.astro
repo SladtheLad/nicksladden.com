@@ -9,11 +9,11 @@ const blogPosts = await getCollection('blog');
 ---
 
 <BlogLayout>
-  <section>
+  <section class='blog-heading'>
     <h1>A Design Engineer's Blog</h1>
     <h2>Sometimes, I will post hot takes here.</h2>
   </section>
-  <section>
+  <section class='blog-posts-list'>
     <ul class={listStyles.blog_list}>
       {
         blogPosts.map((post) => (
@@ -23,13 +23,86 @@ const blogPosts = await getCollection('blog');
               title={post.data.title}
               subtitle={post.data.subtitle}
               link={`/posts/${post.slug}`}
+              pubDate={post.data.pubDate}
             />
-            {post.data.tags.map((tag) => (
+            {/* {post.data.tags.map((tag) => (
               <span>{`${tag}`}</span>
-            ))}
+            ))} */}
           </li>
         ))
       }
+      <!-- <li>
+        <BlogPostOreillyCard
+          animalIcon='skunk'
+          title={'stuff'}
+          subtitle={'stuff'}
+          link={`#`}
+        />
+      </li>
+      <li>
+        <BlogPostOreillyCard
+          animalIcon='skunk'
+          title={'stuff'}
+          subtitle={'stuff'}
+          link={`#`}
+        />
+      </li>
+      <li>
+        <BlogPostOreillyCard
+          animalIcon='skunk'
+          title={'stuff'}
+          subtitle={'stuff'}
+          link={`#`}
+        />
+      </li>
+      <li>
+        <BlogPostOreillyCard
+          animalIcon='skunk'
+          title={'stuff'}
+          subtitle={'stuff'}
+          link={`#`}
+        />
+      </li>
+      <li>
+        <BlogPostOreillyCard
+          animalIcon='skunk'
+          title={'stuff'}
+          subtitle={'stuff'}
+          link={`#`}
+        />
+      </li>
+      <li>
+        <BlogPostOreillyCard
+          animalIcon='skunk'
+          title={'stuff'}
+          subtitle={'stuff'}
+          link={`#`}
+        />
+      </li>
+      <li>
+        <BlogPostOreillyCard
+          animalIcon='skunk'
+          title={'stuff'}
+          subtitle={'stuff'}
+          link={`#`}
+        />
+      </li>
+      <li>
+        <BlogPostOreillyCard
+          animalIcon='skunk'
+          title={'stuff'}
+          subtitle={'stuff'}
+          link={`#`}
+        />
+      </li>
+      <li>
+        <BlogPostOreillyCard
+          animalIcon='skunk'
+          title={'stuff'}
+          subtitle={'stuff'}
+          link={`#`}
+        />
+      </li> -->
     </ul>
   </section>
 </BlogLayout>

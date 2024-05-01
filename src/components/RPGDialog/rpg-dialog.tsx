@@ -79,7 +79,7 @@ const RPGDialog = ({ cards, children }: RPGDialogProps) => {
   }, []);
 
   return (
-    <section className='container'>
+    <section style={showFullText ? { gap: 0 } : {}} className='container'>
       <div
         className='rpg-close-container'
         style={{
@@ -134,7 +134,7 @@ const RPGDialog = ({ cards, children }: RPGDialogProps) => {
         ) : null}
       </div>
       {showFullText ? (
-        <article>
+        <div className='full-text'>
           <p>
             Howdy! I'm Nick. I'm a UX Engineer. I code for a living, but I came
             to this industry a bit later in life than many.
@@ -229,7 +229,7 @@ const RPGDialog = ({ cards, children }: RPGDialogProps) => {
             the colloquialism goes. And that's just as valid as any other
             reason, despite what some may argue.
           </p>
-        </article>
+        </div>
       ) : (
         <button className='rpg-dialog' onClick={handleNext}>
           <span id='typed-text'>

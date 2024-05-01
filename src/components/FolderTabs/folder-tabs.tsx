@@ -7,7 +7,10 @@ interface FolderTabsProps extends Tabs.TabsProps {
   defaultValue?: string;
 }
 
-const FolderTabs = ({ defaultValue, ...props }: FolderTabsProps) => {
+const FolderTabs = ({
+  defaultValue = 'Folder 1',
+  ...props
+}: FolderTabsProps) => {
   const folderClipRef = useRef<HTMLDivElement | null>(null);
   const [folderClipHeight, setFolderClipHeight] = useState<number>(0);
   const [folderClipWidth, setFolderClipWidth] = useState<number>(0);

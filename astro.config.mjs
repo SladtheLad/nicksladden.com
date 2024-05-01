@@ -13,6 +13,7 @@ export default defineConfig({
     react(),
     mdx({
       remarkPlugins: [remarkFrontmatter, remarkSandpack],
+      optimize: true,
     }),
   ],
   output: 'static',

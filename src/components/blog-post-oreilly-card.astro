@@ -1,12 +1,11 @@
 ---
-const { altText, name, link, title, subtitle, animalIcon } = Astro.props;
+const { pubDate, link, title, subtitle, animalIcon } = Astro.props;
 import type { AstroBuiltinProps } from 'astro';
 import AnimalSprites from './Animals/animal-sprites.astro';
 
 interface Props extends AstroBuiltinProps {
   animalIcon: string;
-  altText?: string;
-  name?: string;
+  pubDate: Date;
   link: string | undefined;
   subtitle: string | undefined;
   title: string;
@@ -20,6 +19,7 @@ interface Props extends AstroBuiltinProps {
     <div class='title-container'><span class='title'>{title}</span></div>
     <AnimalSprites icon={animalIcon} />
     <span class='subtitle'>{subtitle}</span>
+    <span class='date'>{pubDate.toLocaleDateString()}</span>
   </div>
 
   <style scoped>
@@ -43,8 +43,8 @@ interface Props extends AstroBuiltinProps {
       border-radius: var(--border-radius);
       display: flex;
       flex-direction: column;
-      height: 30dvh;
-      width: 20dvw;
+      height: 100%;
+      width: 100%;
       padding: 1rem;
 
       span.top-bar {
@@ -72,17 +72,17 @@ interface Props extends AstroBuiltinProps {
       }
 
       span.title {
-        font-size: 2rem;
+        font-size: 1.75rem;
         font-weight: 700;
-        /* line-height: 1.2; */
-        max-width: 70%;
+        max-width: 90%;
+        line-height: 1.3;
       }
       span.subtitle {
         font-size: 0.8rem;
         /* line-height: 1.5; */
         margin-block: 2rem;
       }
-      span.side-sticker {
+      /* span.side-sticker {
         background-color: var(--header-color);
         top: 0;
         position: relative;
@@ -93,11 +93,18 @@ interface Props extends AstroBuiltinProps {
         overflow: hidden;
         transform: rotate(45deg);
         z-index: -1;
+      } */
+      span.date {
+        padding: 1rem;
+        position: absolute;
+        bottom: 0px;
+        right: 0;
+        font-weight: 500;
+        font-size: small;
       }
 
       @media screen and (max-width: 768px) {
         width: 100%;
-        height: 40dvh;
         /* div.title-container {
           margin-top: 0;
         }

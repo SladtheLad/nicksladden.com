@@ -14,20 +14,25 @@
 }
 
 .blog_list {
-  padding: 2rem;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
+  display: flex;
+  flex-wrap: wrap;
+  flex-basis: content;
+  gap: 2rem;
+
   list-style: none;
   width: 100%;
   height: auto;
-  justify-items: center;
+  justify-content: center;
   align-items: center;
-  grid-gap: 2rem;
+
+  li {
+    width: 35ch;
+    height: 40ch;
+  }
 
   @media screen and (max-width: 768px) {
     grid-template-columns: 1fr;
-    li {
-      width: 100%;
-    }
+    width: 90dvw;
+    grid-column: 2 / 12;
   }
 }
