@@ -1,6 +1,6 @@
 ---
 import { ViewTransitions } from 'astro:transitions';
-const { title } = Astro.props.frontmatter || Astro.props;
+const { title, description, url } = Astro.props.frontmatter || Astro.props;
 import favicon from '../images/favicon.ico';
 ---
 
@@ -11,14 +11,20 @@ import favicon from '../images/favicon.ico';
     <meta name='generator' content={Astro.generator} />
     <meta
       name='description'
-      content='Philosophy student turned Web Developer - primarily focused on Front-end, UI/UX Engineering, design systems, and building component libraries.'
+      content={description ||
+        'Philosophy student turned Web Developer - primarily focused on Front-end, UI/UX Engineering, design systems, and building component libraries.'}
     />
     <meta
       property='og:description'
-      content='Philosophy student turned Web Developer - primarily focused on Front-end, UI/UX Engineering, design systems, and building component libraries.'
+      content={description ||
+        'Philosophy student turned Web Developer - primarily focused on Front-end, UI/UX Engineering, design systems, and building component libraries.'}
     />
-    <meta property='og:title' content='Nick Sladden' />
-    <meta property='og:url' content='https://www.nicksladden.com' />
+    <meta property='og:title' content={title || 'Nick Sladden'} />
+    <meta
+      property='og:url'
+      content={`https://www.nicksladden.com${url}` ||
+        'https://www.nicksladden.com'}
+    />
     <meta property='og:type' content='website' />
     <link rel='icon' type='image/x-icon' href={favicon} />
     <link
