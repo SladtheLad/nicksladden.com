@@ -1,5 +1,5 @@
 ---
-const { pubDate, link, title, subtitle, animalIcon } = Astro.props;
+const { animalIcon, link, pubDate, subtitle, tags, title } = Astro.props;
 import type { AstroBuiltinProps } from 'astro';
 import AnimalSprites from './Animals/animal-sprites.astro';
 
@@ -9,6 +9,7 @@ interface Props extends AstroBuiltinProps {
   link: string | undefined;
   subtitle: string | undefined;
   title: string;
+  tags?: string[];
 }
 ---
 
@@ -19,6 +20,15 @@ interface Props extends AstroBuiltinProps {
     <div class='title-container'><span class='title'>{title}</span></div>
     {animalIcon && <AnimalSprites icon={animalIcon} />}
     <span class='subtitle'>{subtitle}</span>
+    {
+      tags && (
+        <div class='tags-container'>
+          {tags.map((tag) => (
+            <span>{tag.toLocaleLowerCase()}</span>
+          ))}
+        </div>
+      )
+    }
     <span class='date'>{pubDate.toLocaleDateString()}</span>
   </div>
 
@@ -115,8 +125,8 @@ interface Props extends AstroBuiltinProps {
       span.date {
         padding: 1rem;
         position: absolute;
-        bottom: 0px;
-        right: 0;
+        top: 0;
+        left: 0;
         font-weight: 500;
         font-size: small;
       }
