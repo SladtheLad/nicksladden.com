@@ -4,7 +4,7 @@ import type { AstroBuiltinProps } from 'astro';
 import AnimalSprites from './Animals/animal-sprites.astro';
 
 interface Props extends AstroBuiltinProps {
-  animalIcon: string;
+  animalIcon?: string;
   pubDate: Date;
   link: string | undefined;
   subtitle: string | undefined;
@@ -17,7 +17,7 @@ interface Props extends AstroBuiltinProps {
     <span class='top-bar'></span>
     <!-- <span class='side-sticker'></span> -->
     <div class='title-container'><span class='title'>{title}</span></div>
-    <AnimalSprites icon={animalIcon} />
+    {animalIcon && <AnimalSprites icon={animalIcon} />}
     <span class='subtitle'>{subtitle}</span>
     <span class='date'>{pubDate.toLocaleDateString()}</span>
   </div>
@@ -104,47 +104,38 @@ interface Props extends AstroBuiltinProps {
         font-size: small;
       }
 
-      @media screen and (max-width: 768px) {
-        width: 100%;
-        /* div.title-container {
-          margin-top: 0;
+      svg {
+        position: absolute;
+        right: 0;
+        top: calc(2dvh);
+        transform: scale(1) translate(0%, 0%);
+        transition: all ease-in-out 0.2s;
+        fill: var(--background-color);
+        font-size: var(--icon-size-1);
+        .icon-outline {
+          color: var(--icon-outline);
         }
-        span.top-bar {
-          top: -1rem;
-        } */
-        span.subtitle {
-          font-size: 1rem;
+        .icon-primary {
+          color: var(--icon-primary);
         }
-      }
-    }
-    svg {
-      position: absolute;
-      right: 0;
-      top: 0;
-      transform: scale(1) translate(0%, 0%);
-      transition: all ease-in-out 0.2s;
-      fill: var(--background-color);
-      font-size: var(--icon-size-1);
-      .icon-outline {
-        color: var(--icon-outline);
-      }
-      .icon-primary {
-        color: var(--icon-primary);
-      }
-      .icon-secondary {
-        color: var(--icon-secondary);
-      }
-      .icon-fill-primary {
-        color: var(--icon-fill-primary);
-      }
-      .icon-tertiary {
-        color: var(--icon-tertiary);
-      }
-      .icon-quaternary {
-        color: var(--icon-quaternary);
-      }
-      .icon-quinary {
-        color: var(--icon-quinary);
+        .icon-secondary {
+          color: var(--icon-secondary);
+        }
+        .icon-fill-primary {
+          color: var(--icon-fill-primary);
+        }
+        .icon-tertiary {
+          color: var(--icon-tertiary);
+        }
+        .icon-quaternary {
+          color: var(--icon-quaternary);
+        }
+        .icon-quinary {
+          color: var(--icon-quinary);
+        }
+        .icon-accent {
+          color: var(--accent);
+        }
       }
     }
     a:focus,
@@ -163,6 +154,22 @@ interface Props extends AstroBuiltinProps {
       }
       svg {
         transform: scale(1.1) translate(8%, 7%);
+      }
+    }
+    @media screen and (max-width: 768px) {
+      width: 100%;
+      /* div.title-container {
+          margin-top: 0;
+        }
+        span.top-bar {
+          top: -1rem;
+        } */
+      span.subtitle {
+        font-size: 1rem;
+      }
+
+      svg {
+        font-size: calc(var(--icon-size-1) * 0.75);
       }
     }
   </style>

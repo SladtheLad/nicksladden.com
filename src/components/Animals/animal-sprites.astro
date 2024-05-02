@@ -20,7 +20,7 @@ function getSVG(name: string) {
   const root = parse(files[filepath]);
 
   const svg = root.querySelector('svg');
-  //@ts-expect-error
+  // @ts-expect-error
   const { attributes, innerHTML } = svg;
 
   return {
@@ -35,4 +35,10 @@ const { attributes: baseAttributes, innerHTML } = getSVG(icon);
 const svgAttributes = { ...baseAttributes, ...attributes };
 ---
 
-<svg {...svgAttributes} set:html={innerHTML} />
+<svg
+  {...svgAttributes}
+  width='1em'
+  height='1em'
+  viewBox='0 0 32 32'
+  set:html={innerHTML}
+/>

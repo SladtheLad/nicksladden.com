@@ -19,7 +19,7 @@ const blogPosts = await getCollection('blog');
         blogPosts.map((post) => (
           <li>
             <BlogPostOreillyCard
-              animalIcon='skunk'
+              animalIcon={post.data.animalIcon}
               title={post.data.title}
               subtitle={post.data.subtitle}
               link={`/posts/${post.slug}`}

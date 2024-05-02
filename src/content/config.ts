@@ -11,6 +11,7 @@ const blogCollection = defineCollection({
     subtitle: z.string(),
     image: z.string().optional(),
     description: z.string(),
+    animalIcon: z.string().optional(),
   }),
 });
 
