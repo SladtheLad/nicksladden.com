@@ -41,6 +41,9 @@ dependencies:
   astro-icon:
     specifier: ^0.8.2
     version: 0.8.2
+  dayjs:
+    specifier: ^1.11.11
+    version: 1.11.11
   react:
     specifier: ^18.3.1
     version: 18.3.1
@@ -2406,6 +2409,10 @@ packages:
     dependencies:
       es5-ext: 0.10.64
       type: 2.7.2
+    dev: false
+
+  /dayjs@1.11.11:
+    resolution: {integrity: sha512-okzr3f11N6WuqYtZSvm+F776mB41wRZMhKP+hc34YdW+KmtYYK9iqvHSwo2k9FEH3fhGXvOPV6yz2IcSrfRUDg==}
     dev: false
 
   /debug@4.3.4:

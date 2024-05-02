@@ -3,7 +3,7 @@ import react from '@astrojs/react';
 import vercel from '@astrojs/vercel/static';
 // import { remarkSandpack } from 'remark-sandpack';
 import remarkFrontmatter from 'remark-frontmatter';
-
+import { remarkModifiedTime } from './src/utils/remark-modified-time.mjs';
 import mdx from '@astrojs/mdx';
 
 // https://astro.build/config
@@ -14,6 +14,7 @@ export default defineConfig({
     mdx({
       remarkPlugins: [
         remarkFrontmatter,
+        remarkModifiedTime,
         //  remarkSandpack
       ],
       optimize: true,

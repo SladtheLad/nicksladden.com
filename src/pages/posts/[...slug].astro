@@ -1,19 +1,53 @@
 ---
 import { getCollection } from 'astro:content';
 import BlogPostMarkdownLayout from '../../layouts/blog-post-markdown-layout.astro';
+import dayjs from 'dayjs';
+import utc from 'dayjs/plugin/utc';
+
+dayjs.extend(utc);
 
 export async function getStaticPaths() {
   const blogEntries = await getCollection('blog');
-  return blogEntries.map((entry) => ({
-    params: { slug: entry.slug },
-    props: { entry },
-  }));
+
+  for (const entry of blogEntries) {
+    console.log(entry.data);
+    let date = new Date(entry.data.pubDate).toLocaleDateString('en-US', {
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric',
+    });
+    console.log(date);
+  }
+  return blogEntries.map((entry) => {
+    let date = new Date(entry.data.pubDate).toLocaleDateString('en-US', {
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric',
+    });
+    return {
+      params: { slug: entry.slug },
+      props: { entry, data: { ...entry.data, pubDate: date } },
+    };
+  });
 }
 
 const { entry } = Astro.props;
-const { Content } = await entry.render();
+const { Content, remarkPluginFrontmatter } = await entry.render();
+
+console.log(remarkPluginFrontmatter);
+
+const lastModified = dayjs(remarkPluginFrontmatter.lastModified)
+  .utc()
+  .format('HH:mm:ss DD MMMM YYYY UTC');
+
+console.log(lastModified);
 ---
 
 <BlogPostMarkdownLayout frontmatter={entry.data}>
   <Content />
+  {
+    lastModified && lastModified !== 'Invalid Date' && (
+      <h6 class='last-modified'>Last modified: {lastModified}</h6>
+    )
+  }
 </BlogPostMarkdownLayout>
