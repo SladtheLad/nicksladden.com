@@ -14,6 +14,7 @@
   --icon-quaternary: #a0a0a0;
   --icon-quinary: #7a7a7a;
   --icon-size-1: 8.5rem;
+  --accent-opacity: 0.6;
 
   /* Scrollbar Styles */
   --scrollbar-color-thumb: var(--accent);
