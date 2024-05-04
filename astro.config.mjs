@@ -33,7 +33,7 @@ export default defineConfig({
         rehypeAutolinkHeadings,
         {
           behavior: 'prepend',
-          properties: { ariaHidden: false, tabIndex: 0 },
+          properties: {},
           content: {
             type: 'element',
             tagName: 'span',
