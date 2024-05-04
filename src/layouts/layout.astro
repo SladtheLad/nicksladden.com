@@ -2,6 +2,7 @@
 import { ViewTransitions } from 'astro:transitions';
 const { title, description, url } = Astro.props.frontmatter || Astro.props;
 import favicon from '../images/favicon.ico';
+import SpeedInsights from '@vercel/speed-insights/astro';
 ---
 
 <html lang='en'>
@@ -50,6 +51,7 @@ import favicon from '../images/favicon.ico';
       rel='stylesheet'
     />
     <title>{title}</title>
+    <SpeedInsights />
   </head>
 
   <ViewTransitions />
