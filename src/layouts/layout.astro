@@ -88,6 +88,7 @@ import favicon from '../images/favicon.ico';
           &:active {
             color: var(--accent);
             outline-offset: 4px;
+            outline: 2px dashed var(--accent);
           }
         }
         @media screen and (max-width: 600px) {
@@ -233,8 +234,11 @@ import favicon from '../images/favicon.ico';
       a {
         color: var(--link-color);
         text-decoration: underline;
-        outline-offset: var(--border-radius);
-        &:hover {
+        outline-offset: 0;
+        &:hover,
+        &:focus-visible,
+        &:active {
+          outline: 2px dashed var(--accent);
           color: var(--accent);
         }
       }
