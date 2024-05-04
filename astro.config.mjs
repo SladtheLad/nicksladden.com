@@ -1,10 +1,12 @@
-import { defineConfig } from 'astro/config';
+import mdx from '@astrojs/mdx';
 import react from '@astrojs/react';
 import vercel from '@astrojs/vercel/static';
-// import { remarkSandpack } from 'remark-sandpack';
+import { defineConfig } from 'astro/config';
+import rehypeAutolinkHeadings from 'rehype-autolink-headings';
+import rehypeSlug from 'rehype-slug';
 import remarkFrontmatter from 'remark-frontmatter';
+import remarkToc from 'remark-toc';
 import { remarkModifiedTime } from './src/utils/remark-modified-time.mjs';
-import mdx from '@astrojs/mdx';
 
 // https://astro.build/config
 export default defineConfig({
@@ -12,11 +14,7 @@ export default defineConfig({
   integrations: [
     react(),
     mdx({
-      remarkPlugins: [
-        remarkFrontmatter,
-        remarkModifiedTime,
-        //  remarkSandpack
-      ],
+      remarkPlugins: [remarkFrontmatter, remarkModifiedTime],
       optimize: true,
     }),
   ],
@@ -26,4 +24,25 @@ export default defineConfig({
       enabled: true,
     },
   }),
+
+  markdown: {
+    remarkPlugins: [[remarkToc, { heading: 'contents' }]],
+    rehypePlugins: [
+      rehypeSlug,
+      [
+        rehypeAutolinkHeadings,
+        {
+          behavior: 'prepend',
+          properties: { ariaHidden: false, tabIndex: 0 },
+          content: {
+            type: 'element',
+            tagName: 'span',
+            properties: { className: ['icon', 'icon-link'] },
+            children: [{ type: 'text', value: '#' }],
+          },
+          test: 'h3',
+        },
+      ],
+    ],
+  },
 });
