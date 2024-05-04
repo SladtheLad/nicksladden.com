@@ -34,9 +34,6 @@ const { title, description, url } = Astro.props;
       padding: 0;
       line-height: 1.4;
     }
-    h2 {
-      margin-block-end: 5ch;
-    }
     h3,
     h4,
     h5,
@@ -47,19 +44,11 @@ const { title, description, url } = Astro.props;
     }
 
     h2,
-    h3,
-    h4 {
-      color: inherit;
-      font-family: Avenir, Montserrat, Corbel, 'URW Gothic', source-sans-pro,
-        sans-serif;
-      font-weight: 500;
-    }
     p,
     span {
       color: inherit;
-      font-family: Avenir, Montserrat, Corbel, 'URW Gothic', source-sans-pro,
-        sans-serif;
-      font-weight: 400;
+      font-family: Roboto Slab;
+      font-weight: 300;
     }
 
     hr {
@@ -70,33 +59,21 @@ const { title, description, url } = Astro.props;
       opacity: var(--accent-opacity);
     }
     p {
-      font-size: 1rem;
+      font-size: 0.9rem;
       width: 100%;
       max-inline-size: 68dvw;
       margin-block: 1.5rem;
-      line-height: 1.5;
     }
-    a {
-      color: var(--link-color);
-      text-decoration: none;
-      border: none;
-      outline: none;
-      &:hover,
-      &:focus,
-      &:focus-visible,
-      &:active {
-        color: var(--accent);
-        outline: 1px dashed var(--accent);
-        outline-offset: 0;
-      }
-    }
+
     h2 {
       color: var(--header-color);
       font-size: large;
+      font-weight: normal;
     }
     h3 {
       color: var(--header-color);
       font-size: 1.1rem;
+      font-weight: normal;
     }
 
     /* Header Links */
@@ -112,12 +89,12 @@ const { title, description, url } = Astro.props;
         color: var(--header-color);
         text-decoration: none;
         font-weight: normal;
-        border: none;
-        outline: none;
+        border-radius: var(--border-radius);
         &:hover,
-        &:focus,
-        &:focus-visible,
-        &:active {
+        :focus,
+        :focus-visible,
+        :active {
+          text-decoration: underline;
           color: var(--accent);
           outline: 1px dashed var(--accent);
           outline-offset: 0.15rem;
