@@ -14,7 +14,7 @@
   --icon-quaternary: #a0a0a0;
   --icon-quinary: #7a7a7a;
   --icon-size-1: 132px;
-  --accent-opacity: 0.6;
+  --accent-opacity: 0.75;
 
   /* Scrollbar Styles */
   --scrollbar-color-thumb: var(--accent);
@@ -51,7 +51,7 @@
     --accent: color(display-p3 1 0.72549 0.501961 / 1);
     --background-color: color(display-p3 0.109804 0.113725 0.141176 / 1);
     @supports (color: oklch(0 0 0)) {
-      --accent: oklch(83.87% 0.1382 59.69);
+      --accent: oklch(84% 32% 57);
       --background-color: oklch(23.28% 0.014 278.88);
     }
   }
