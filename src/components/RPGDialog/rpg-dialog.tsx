@@ -12,6 +12,14 @@ const RPGDialog = ({ cards, children }: RPGDialogProps) => {
   const [currentCard, setCurrentCard] = React.useState<string>(cards[0] || '');
   const [currentIndex, setCurrentIndex] = React.useState<number>(0);
 
+  const prefersReducedMotion = window.matchMedia(
+    '(prefers-reduced-motion: reduce)',
+  ).matches;
+  const [showFullText, setShowFullText] =
+    React.useState<boolean>(prefersReducedMotion);
+
+  console.log(prefersReducedMotion);
+
   const [currentTypeText, setCurrentTypeText] = React.useState<string>('');
   const [currentTypeTextIndex, setCurrentTypeTextIndex] =
     React.useState<number>(0);
@@ -29,19 +37,27 @@ const RPGDialog = ({ cards, children }: RPGDialogProps) => {
   };
 
   useEffect(() => {
-    if (currentIndex === 0) {
-      if (currentTypeTextIndex < currentCard.length) {
-        const timeout = setTimeout(() => {
-          setCurrentTypeText(
-            (prevText) => prevText + currentCard[currentTypeTextIndex],
-          );
-          setCurrentTypeTextIndex((prevIndex) => prevIndex + 1);
-        }, delay);
+    if (!showFullText) {
+      if (currentIndex === 0) {
+        if (currentTypeTextIndex < currentCard.length) {
+          const timeout = setTimeout(() => {
+            setCurrentTypeText(
+              (prevText) => prevText + currentCard[currentTypeTextIndex],
+            );
+            setCurrentTypeTextIndex((prevIndex) => prevIndex + 1);
+          }, delay);
 
-        return () => clearTimeout(timeout);
+          return () => clearTimeout(timeout);
+        }
       }
     }
-  }, [currentTypeTextIndex, delay, currentTypeText, currentIndex]);
+  }, [
+    currentTypeTextIndex,
+    delay,
+    currentTypeText,
+    currentIndex,
+    showFullText,
+  ]);
 
   // Close button stuff
   const [showCloseTextButton, setShowCloseTextButton] =
@@ -70,11 +86,8 @@ const RPGDialog = ({ cards, children }: RPGDialogProps) => {
     }
   }, [currentCloseTextIndex, delay, currentCloseText, showCloseTextButton]);
 
-  const [showFullText, setShowFullText] = React.useState<boolean>(false);
-
   // Reset the state when the component is unmounted
   useEffect(() => {
-    setShowFullText(false);
     setShowCloseTextButton(false);
   }, []);
 
