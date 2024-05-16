@@ -34,6 +34,9 @@ const { title, description, url } = Astro.props;
       padding: 0;
       line-height: 1.4;
     }
+    h2 {
+      margin-block-end: 5ch;
+    }
     h3,
     h4,
     h5,
@@ -41,6 +44,22 @@ const { title, description, url } = Astro.props;
     p {
       padding: 0;
       margin-block: 1rem;
+    }
+
+    h2,
+    h3,
+    h4 {
+      color: inherit;
+      font-family: Avenir, Montserrat, Corbel, 'URW Gothic', source-sans-pro,
+        sans-serif;
+      font-weight: 500;
+    }
+    p,
+    span {
+      color: inherit;
+      font-family: Avenir, Montserrat, Corbel, 'URW Gothic', source-sans-pro,
+        sans-serif;
+      font-weight: 400;
     }
 
     hr {
@@ -51,25 +70,60 @@ const { title, description, url } = Astro.props;
       opacity: var(--accent-opacity);
     }
     p {
-      font-size: 0.9rem;
+      font-size: 1rem;
       width: 100%;
       max-inline-size: 68dvw;
       margin-block: 1.5rem;
+      line-height: 1.5;
     }
-
+    a {
+      color: var(--link-color);
+      text-decoration: none;
+      border: none;
+      outline: none;
+      &:hover,
+      &:focus,
+      &:focus-visible,
+      &:active {
+        color: var(--accent);
+        outline: 1px dashed var(--accent);
+        outline-offset: 0;
+      }
+    }
     h2 {
       color: var(--header-color);
       font-size: large;
-      font-weight: normal;
     }
     h3 {
       color: var(--header-color);
       font-size: 1.1rem;
-      font-weight: normal;
     }
-    /* ul {
-      padding-block: 2rem;
-    } */
+
+    /* Header Links */
+    h3,
+    h4,
+    h5,
+    h6 {
+      position: relative;
+
+      a {
+        position: absolute;
+        left: -1rem;
+        color: var(--header-color);
+        text-decoration: none;
+        font-weight: normal;
+        border: none;
+        outline: none;
+        &:hover,
+        &:focus,
+        &:focus-visible,
+        &:active {
+          color: var(--accent);
+          outline: 1px dashed var(--accent);
+          outline-offset: 0.15rem;
+        }
+      }
+    }
 
     span.date {
       font-size: 0.8rem;

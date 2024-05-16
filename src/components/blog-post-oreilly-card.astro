@@ -79,9 +79,26 @@ interface Props extends AstroBuiltinProps {
         line-height: 1.3;
       }
       span.subtitle {
-        font-size: 0.8rem;
-        /* line-height: 1.5; */
+        font-family: Avenir, Montserrat, Corbel, 'URW Gothic', source-sans-pro,
+          sans-serif;
+        font-size: 1rem;
+        font-weight: 400;
         margin-block: 2rem;
+      }
+
+      div.tags-container {
+        position: absolute;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+        bottom: 0;
+        padding-block: 0.5rem;
+        span {
+          font-size: xx-small;
+          border: 1px dashed var(--border-color);
+          border-radius: var(--border-radius);
+          padding: 4px;
+        }
       }
       /* span.side-sticker {
         background-color: var(--header-color);
