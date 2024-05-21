@@ -24,10 +24,8 @@ const blogPosts = await getCollection('blog');
               subtitle={post.data.subtitle}
               link={`/posts/${post.slug}`}
               pubDate={post.data.pubDate}
+              tags={post.data.tags}
             />
-            {/* {post.data.tags.map((tag) => (
-              <span>{`${tag}`}</span>
-            ))} */}
           </li>
         ))
       }
