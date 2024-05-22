@@ -9,9 +9,7 @@
       "recommended": true
     }
   },
-  "javascript": {
-    "formatter": {
-      "quoteStyle": "single"
-    }
+  "formatter": {
+    "enabled": true
   }
 }

@@ -1,169 +1,168 @@
 ---
-import Layout from './layout.astro';
+import Layout from "./layout.astro";
 const { title, description, url } = Astro.props;
 ---
 
 <Layout title={title} description={description} url={url}>
-  <head>
-    <title>{title}</title>
-  </head>
-  <article>
-    <slot />
-  </article>
+    <head>
+        <title>{title}</title>
+    </head>
+    <article>
+        <slot />
+    </article>
 </Layout>
 
 <style>
-  article {
-    height: auto;
-    width: clamp(16rem, 50dvw, 60rem);
-    padding: 2rem;
-    border-inline: 3px dashed var(--border-color);
-    display: block;
-    flex-direction: column;
-    min-height: 100dvh;
-    section {
-      margin-left: auto;
-      margin-right: auto;
-      width: 100%;
-      height: 100%;
-      height: fit-content;
-    }
-
-    h1,
-    h2 {
-      padding: 0;
-      line-height: 1.4;
-    }
-    h3,
-    h4,
-    h5,
-    h6,
-    p {
-      padding: 0;
-      margin-block: 1rem;
-      font-family: Avenir, Montserrat, Corbel, 'URW Gothic', source-sans-pro,
-        sans-serif;
-    }
-
-    h2,
-    p,
-    span {
-      color: inherit;
-      font-weight: 300;
-    }
-
-    hr {
-      width: 100%;
-      height: 0;
-      border: none;
-      border-block: 2px dashed var(--accent);
-      opacity: var(--accent-opacity);
-    }
-    p {
-      font-size: 0.9rem;
-      width: 100%;
-      max-inline-size: 68dvw;
-      margin-block: 1.5rem;
-    }
-    a {
-      color: var(--link-color);
-      text-decoration: none;
-      border: none;
-      outline: none;
-      &:hover,
-      &:focus,
-      &:focus-visible,
-      &:active {
-        color: var(--accent);
-        outline: 1px dashed var(--accent);
-        outline-offset: 0;
-      }
-    }
-    h2 {
-      color: var(--header-color);
-      font-size: large;
-      font-weight: normal;
-    }
-    h3 {
-      color: var(--header-color);
-      font-size: 1.1rem;
-      font-weight: normal;
-    }
-
-    /* Header Links */
-    h3,
-    h4,
-    h5,
-    h6 {
-      position: relative;
-
-      a {
-        position: absolute;
-        left: -1rem;
-        color: var(--header-color);
-        text-decoration: none;
-        font-weight: normal;
-        border: none;
-        outline: none;
-        &:hover,
-        &:focus,
-        &:focus-visible,
-        &:active {
-          color: var(--accent);
-          outline: 1px dashed var(--accent);
-          outline-offset: 0.15rem;
+    article {
+        height: auto;
+        width: clamp(16rem, 50dvw, 60rem);
+        padding: 2rem;
+        border-inline: 3px dashed var(--border-color);
+        display: block;
+        flex-direction: column;
+        min-height: 100dvh;
+        section {
+            margin-left: auto;
+            margin-right: auto;
+            width: 100%;
+            height: 100%;
+            height: fit-content;
         }
-      }
+
+        h1,
+        h2 {
+            padding: 0;
+            line-height: 1.4;
+        }
+        h3,
+        h4,
+        h5,
+        h6,
+        p {
+            padding: 0;
+            margin-block: 1rem;
+            font-family: "Space Grotesk", Avenir, sans-serif;
+        }
+
+        h2,
+        p,
+        span {
+            color: inherit;
+            font-weight: 300;
+        }
+
+        hr {
+            width: 100%;
+            height: 0;
+            border: none;
+            border-block: 2px dashed var(--accent);
+            opacity: var(--accent-opacity);
+        }
+        p {
+            font-size: 0.9rem;
+            width: 100%;
+            max-inline-size: 68dvw;
+            margin-block: 1.5rem;
+        }
+        a {
+            color: var(--link-color);
+            text-decoration: none;
+            border: none;
+            outline: none;
+            &:hover,
+            &:focus,
+            &:focus-visible,
+            &:active {
+                color: var(--accent);
+                outline: 1px dashed var(--accent);
+                outline-offset: 0;
+            }
+        }
+        h2 {
+            color: var(--header-color);
+            font-size: large;
+            font-weight: normal;
+        }
+        h3 {
+            color: var(--header-color);
+            font-size: 1.1rem;
+            font-weight: normal;
+        }
+
+        /* Header Links */
+        h3,
+        h4,
+        h5,
+        h6 {
+            position: relative;
+
+            a {
+                position: absolute;
+                left: -1rem;
+                color: var(--header-color);
+                text-decoration: none;
+                font-weight: normal;
+                border: none;
+                outline: none;
+                &:hover,
+                &:focus,
+                &:focus-visible,
+                &:active {
+                    color: var(--accent);
+                    outline: 1px dashed var(--accent);
+                    outline-offset: 0.15rem;
+                }
+            }
+        }
+
+        span.date {
+            font-size: 0.8rem;
+            color: var(--header-color);
+            font-weight: 700;
+            padding-inline-start: 2rem;
+        }
+
+        section.blog-heading {
+            height: fit-content;
+            grid-area: 1 / 2 / 2 / 14;
+        }
+        section.blog-posts-list {
+            width: 100%;
+            margin: 0;
+            grid-area: 2 / 2 / 6 / 14;
+        }
     }
 
-    span.date {
-      font-size: 0.8rem;
-      color: var(--header-color);
-      font-weight: 700;
-      padding-inline-start: 2rem;
-    }
-
-    section.blog-heading {
-      height: fit-content;
-      grid-area: 1 / 2 / 2 / 14;
-    }
-    section.blog-posts-list {
-      width: 100%;
-      margin: 0;
-      grid-area: 2 / 2 / 6 / 14;
-    }
-  }
-
-  @media screen and (max-width: 1600px) {
-    article {
-      /* section {
+    @media screen and (max-width: 1600px) {
+        article {
+            /* section {
         grid-template-columns: minmax(1rem, 1fr) repeat(12, minmax(0, 120px)) minmax(
             1rem,
             1fr
           );
       } */
+        }
     }
-  }
 
-  @media screen and (max-width: 768px) {
-    article {
-      width: 100%;
-      padding-block-start: 6rem;
-      border: none;
-      padding-inline: 0.75rem;
+    @media screen and (max-width: 768px) {
+        article {
+            width: 100%;
+            padding-block-start: 6rem;
+            border: none;
+            padding-inline: 0.75rem;
 
-      /* section {
+            /* section {
         grid-template-columns: minmax(1rem, 1fr) repeat(12, minmax(0, 120px)) minmax(
             1rem,
             1fr
           );
       } */
 
-      p {
-        font-size: 1rem;
-        width: 100%;
-        max-inline-size: 100%;
-      }
+            p {
+                font-size: 1rem;
+                width: 100%;
+                max-inline-size: 100%;
+            }
+        }
     }
-  }
 </style>

@@ -1,116 +1,115 @@
 ---
 const { animalIcon, link, pubDate, subtitle, tags, title } = Astro.props;
-import type { AstroBuiltinProps } from 'astro';
-import AnimalSprites from './Animals/animal-sprites.astro';
+import type { AstroBuiltinProps } from "astro";
+import AnimalSprites from "./Animals/animal-sprites.astro";
 
 interface Props extends AstroBuiltinProps {
-  animalIcon?: string;
-  pubDate: Date;
-  link: string | undefined;
-  subtitle: string | undefined;
-  title: string;
-  tags?: string[];
+    animalIcon?: string;
+    pubDate: Date;
+    link: string | undefined;
+    subtitle: string | undefined;
+    title: string;
+    tags?: string[];
 }
 ---
 
 <a href={link}>
-  <div class='oreilly-blog-card'>
-    <span class='top-bar'></span>
-    <!-- <span class='side-sticker'></span> -->
-    <div class='title-container'><span class='title'>{title}</span></div>
-    {animalIcon && <AnimalSprites icon={animalIcon} />}
-    <span class='subtitle'>{subtitle}</span>
-    {
-      tags && (
-        <div class='tags-container'>
-          {tags.map((tag) => (
-            <span>{tag.toLocaleLowerCase()}</span>
-          ))}
-        </div>
-      )
-    }
-    <span class='date'>{pubDate.toLocaleDateString()}</span>
-  </div>
-
-  <style scoped>
-    a {
-      display: block;
-      text-decoration: none;
-      outline: none;
-      height: 100%;
-      width: 100%;
-      z-index: 4;
-    }
-
-    .oreilly-blog-card {
-      text-decoration: none;
-      color: var(--header-color);
-
-      transition: all 0.2s;
-      border-radius: var(--border-radius);
-      background-color: var(--background-color);
-      border: 1px solid var(--border-color);
-      border-radius: var(--border-radius);
-      display: flex;
-      flex-direction: column;
-      height: 100%;
-      width: 100%;
-      padding: 1rem;
-      position: relative;
-
-      span.top-bar {
-        background-color: var(--accent);
-        opacity: var(--accent-opacity);
-        position: relative;
-        display: block;
-        height: 4px;
-        width: 100%;
-        top: calc(0px - 1rem);
-      }
-
-      div.title-container {
-        background-color: var(--accent);
-        opacity: var(--accent-opacity);
-        color: var(--background-color);
-        padding-inline: 1rem;
-        padding-block: 0.5rem;
-
-        min-height: 8dvh;
-        display: flex;
-        flex-basis: content;
-        align-items: center;
-        margin-top: 2rem;
-      }
-
-      span.title {
-        font-size: 1.75rem;
-        font-weight: 700;
-        max-width: 75%;
-        line-height: 1.3;
-      }
-      span.subtitle {
-        font-family: Avenir, Montserrat, Corbel, 'URW Gothic', source-sans-pro,
-          sans-serif;
-        font-size: 1rem;
-        font-weight: 300;
-        margin-block: 2rem;
-      }
-
-      div.tags-container {
-        position: absolute;
-        display: flex;
-        flex-wrap: wrap;
-        gap: 0.5rem;
-        bottom: 0;
-        padding-block: 0.5rem;
-        span {
-          font-size: xx-small;
-          border: 1px dashed var(--border-color);
-          border-radius: var(--border-radius);
-          padding: 4px;
+    <div class="oreilly-blog-card">
+        <span class="top-bar"></span>
+        <!-- <span class='side-sticker'></span> -->
+        <div class="title-container"><span class="title">{title}</span></div>
+        {animalIcon && <AnimalSprites icon={animalIcon} />}
+        <span class="subtitle">{subtitle}</span>
+        {
+            tags && (
+                <div class="tags-container">
+                    {tags.map((tag) => (
+                        <span>{tag.toLocaleLowerCase()}</span>
+                    ))}
+                </div>
+            )
         }
-      }
-      /* span.side-sticker {
+        <span class="date">{pubDate.toLocaleDateString()}</span>
+    </div>
+
+    <style scoped>
+        a {
+            display: block;
+            text-decoration: none;
+            outline: none;
+            height: 100%;
+            width: 100%;
+            z-index: 4;
+        }
+
+        .oreilly-blog-card {
+            text-decoration: none;
+            color: var(--header-color);
+
+            transition: all 0.2s;
+            border-radius: var(--border-radius);
+            background-color: var(--background-color);
+            border: 1px solid var(--border-color);
+            border-radius: var(--border-radius);
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            width: 100%;
+            padding: 1rem;
+            position: relative;
+
+            span.top-bar {
+                background-color: var(--accent);
+                opacity: var(--accent-opacity);
+                position: relative;
+                display: block;
+                height: 4px;
+                width: 100%;
+                top: calc(0px - 1rem);
+            }
+
+            div.title-container {
+                background-color: var(--accent);
+                opacity: var(--accent-opacity);
+                color: var(--background-color);
+                padding-inline: 1rem;
+                padding-block: 0.5rem;
+
+                min-height: 8dvh;
+                display: flex;
+                flex-basis: content;
+                align-items: center;
+                margin-top: 2rem;
+            }
+
+            span.title {
+                font-size: 1.75rem;
+                font-weight: 700;
+                max-width: 75%;
+                line-height: 1.3;
+            }
+            span.subtitle {
+                font-family: "Space Grotesk", Avenir, sans-serif;
+                font-size: 1rem;
+                font-weight: 300;
+                margin-block: 2rem;
+            }
+
+            div.tags-container {
+                position: absolute;
+                display: flex;
+                flex-wrap: wrap;
+                gap: 0.5rem;
+                bottom: 0;
+                padding-block: 0.5rem;
+                span {
+                    font-size: xx-small;
+                    border: 1px dashed var(--border-color);
+                    border-radius: var(--border-radius);
+                    padding: 4px;
+                }
+            }
+            /* span.side-sticker {
         background-color: var(--header-color);
         top: 0;
         position: relative;
@@ -122,84 +121,84 @@ interface Props extends AstroBuiltinProps {
         transform: rotate(45deg);
         z-index: -1;
       } */
-      span.date {
-        padding: 1rem;
-        position: absolute;
-        top: 0;
-        left: 0;
-        font-weight: 500;
-        font-size: small;
-      }
+            span.date {
+                padding: 1rem;
+                position: absolute;
+                top: 0;
+                left: 0;
+                font-weight: 500;
+                font-size: small;
+            }
 
-      svg {
-        position: absolute;
-        right: 0;
-        top: calc(2dvh);
-        transform: scale(1) translate(0%, 0%);
-        transition: all ease-in-out 0.2s;
-        fill: var(--background-color);
-        font-size: var(--icon-size-1);
-        .icon-outline {
-          color: var(--icon-outline);
+            svg {
+                position: absolute;
+                right: 0;
+                top: calc(2dvh);
+                transform: scale(1) translate(0%, 0%);
+                transition: all ease-in-out 0.2s;
+                fill: var(--background-color);
+                font-size: var(--icon-size-1);
+                .icon-outline {
+                    color: var(--icon-outline);
+                }
+                .icon-primary {
+                    color: var(--icon-primary);
+                }
+                .icon-secondary {
+                    color: var(--icon-secondary);
+                }
+                .icon-fill-primary {
+                    color: var(--icon-fill-primary);
+                }
+                .icon-tertiary {
+                    color: var(--icon-tertiary);
+                }
+                .icon-quaternary {
+                    color: var(--icon-quaternary);
+                }
+                .icon-quinary {
+                    color: var(--icon-quinary);
+                }
+                .icon-accent {
+                    color: var(--accent);
+                }
+            }
         }
-        .icon-primary {
-          color: var(--icon-primary);
+        a:focus,
+        a:active,
+        a:focus-visible,
+        a:hover {
+            outline: 1px dashed var(--accent);
+            outline-offset: 0.5rem;
+            .oreilly-blog-card {
+                outline: solid 1px var(--accent);
+                /* border-color: color-mix(in hsl, var(--accent), transparent 80%); */
+                div.title-container {
+                    opacity: 1;
+                }
+                span.top-bar {
+                    opacity: 1;
+                }
+            }
+            svg {
+                transform: scale(1.1) translate(8%, 7%);
+            }
         }
-        .icon-secondary {
-          color: var(--icon-secondary);
-        }
-        .icon-fill-primary {
-          color: var(--icon-fill-primary);
-        }
-        .icon-tertiary {
-          color: var(--icon-tertiary);
-        }
-        .icon-quaternary {
-          color: var(--icon-quaternary);
-        }
-        .icon-quinary {
-          color: var(--icon-quinary);
-        }
-        .icon-accent {
-          color: var(--accent);
-        }
-      }
-    }
-    a:focus,
-    a:active,
-    a:focus-visible,
-    a:hover {
-      outline: 1px dashed var(--accent);
-      outline-offset: 0.5rem;
-      .oreilly-blog-card {
-        outline: solid 1px var(--accent);
-        /* border-color: color-mix(in hsl, var(--accent), transparent 80%); */
-        div.title-container {
-          opacity: 1;
-        }
-        span.top-bar {
-          opacity: 1;
-        }
-      }
-      svg {
-        transform: scale(1.1) translate(8%, 7%);
-      }
-    }
-    @media screen and (max-width: 768px) {
-      width: 100%;
-      /* div.title-container {
+        @media screen and (max-width: 768px) {
+            width: 100%;
+            /* div.title-container {
           margin-top: 0;
         }
         span.top-bar {
           top: -1rem;
         } */
-      span.subtitle {
-        font-size: 1rem;
-      }
+            span.subtitle {
+                font-size: 1rem;
+            }
 
-      svg {
-        font-size: calc(var(--icon-size-1) * 0.75);
-      }
-    }
-  </style>
+            svg {
+                font-size: calc(var(--icon-size-1) * 0.75);
+            }
+        }
+    </style>
 </a>
