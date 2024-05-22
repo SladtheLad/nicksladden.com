@@ -16,7 +16,7 @@ import ResumeCv from '../components/Resume/resume-cv.astro';
     padding-block: 2rem;
     display: grid;
     gap: 1.25rem;
-    border-inline: 3px dashed var(--border-color);
+    border-inline: 1px dashed var(--border-color);
     grid-template-columns: minmax(1rem, 0.5fr) repeat(12, 1fr) minmax(
         1rem,
         0.5fr
@@ -40,14 +40,13 @@ import ResumeCv from '../components/Resume/resume-cv.astro';
       padding-block-start: 6rem;
       border: none;
       padding-inline: 0.75rem;
-    }
-
-    section {
-      margin-left: auto;
-      margin-right: auto;
-      width: 100%;
-      height: 100%;
-      grid-area: 1 / 4 / 1 / 12;
+      section {
+        margin-left: auto;
+        margin-right: auto;
+        width: 100%;
+        height: 100%;
+        grid-area: 1 / 1 / 2 / 15;
+      }
     }
   }
 </style>

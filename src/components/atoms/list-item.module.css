@@ -1,4 +1,7 @@
 .list {
+  display: inline-flex;
+  flex-direction: column;
+  gap: 1rem;
   list-style-type: disc;
   li {
     list-style-position: inside;
