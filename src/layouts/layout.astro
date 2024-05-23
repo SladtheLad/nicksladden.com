@@ -1,328 +1,338 @@
 ---
-import { ViewTransitions } from 'astro:transitions';
+import { ViewTransitions } from "astro:transitions";
 const { title, description, url } = Astro.props.frontmatter || Astro.props;
-import favicon from '../images/favicon.ico';
-import SpeedInsights from '@vercel/speed-insights/astro';
+import favicon from "../images/favicon.ico";
+import SpeedInsights from "@vercel/speed-insights/astro";
 ---
 
-<html lang='en'>
-  <head>
-    <meta charset='utf-8' />
-    <meta name='viewport' content='width=device-width, initial-scale=1' />
-    <meta name='generator' content={Astro.generator} />
-    <meta
-      name='description'
-      content={description ||
-        'Philosophy student turned Web Developer - primarily focused on Front-end, UI/UX Engineering, design systems, and building component libraries.'}
-    />
-    <meta
-      property='og:description'
-      content={description ||
-        'Philosophy student turned Web Developer - primarily focused on Front-end, UI/UX Engineering, design systems, and building component libraries.'}
-    />
-    <meta property='og:title' content={title || 'Nick Sladden'} />
-    <meta
-      property='og:url'
-      content={`https://www.nicksladden.com${url}` ||
-        'https://www.nicksladden.com'}
-    />
-    <meta property='og:type' content='website' />
-    <link rel='icon' type='image/x-icon' href={favicon} />
-    <!-- CommitMono Font -->
-    <link
-      rel='preload'
-      href='/fonts/commitmono-400-regular-webfont.woff2'
-      as='font'
-      type='font/woff2'
-      crossorigin='anonymous'
-    />
-    <link
-      rel='preload'
-      href='/fonts/commitmono-700-regular-webfont.woff2'
-      as='font'
-      type='font/woff2'
-      crossorigin='anonymous'
-    />
-    <title>{title}</title>
-    <SpeedInsights />
-  </head>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="generator" content={Astro.generator} />
+        <meta
+            name="description"
+            content={description ||
+                "Philosophy student turned Web Developer - primarily focused on Front-end, UI/UX Engineering, design systems, and building component libraries."}
+        />
+        <meta
+            property="og:description"
+            content={description ||
+                "Philosophy student turned Web Developer - primarily focused on Front-end, UI/UX Engineering, design systems, and building component libraries."}
+        />
+        <meta property="og:title" content={title || "Nick Sladden"} />
+        <meta
+            property="og:url"
+            content={`https://www.nicksladden.com${url}` ||
+                "https://www.nicksladden.com"}
+        />
+        <meta property="og:type" content="website" />
+        <link rel="icon" type="image/x-icon" href={favicon} />
+        <!-- CommitMono Font -->
+        <link
+            rel="preload"
+            href="/fonts/commitmono-400-regular-webfont.woff2"
+            as="font"
+            type="font/woff2"
+            crossorigin="anonymous"
+        />
+        <link
+            rel="preload"
+            href="/fonts/commitmono-700-regular-webfont.woff2"
+            as="font"
+            type="font/woff2"
+            crossorigin="anonymous"
+        />
+        <title>{title}</title>
+        <SpeedInsights />
+    </head>
 
-  <ViewTransitions />
+    <ViewTransitions />
 
-  <body>
-    <nav>
-      <ul>
-        <li><a href='/'>Home</a></li>
-        <li><a href='/portfolio'>Portfolio</a></li>
-        <li><a href='/blog'>Blog</a></li>
-      </ul>
-    </nav>
-    <main role='main'>
-      <slot />
-    </main>
+    <body>
+        <nav>
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="/portfolio">Portfolio</a></li>
+                <li><a href="/blog">Blog</a></li>
+            </ul>
+        </nav>
+        <main role="main">
+            <slot />
+        </main>
 
-    <style>
-      @import '../styles/variables.css';
+        <style>
+            @import "../styles/variables.css";
 
-      nav {
-        position: fixed;
-        right: 0;
-        padding: 1rem;
-        z-index: 9999;
-      }
-      nav ul {
-        list-style: none;
-        font-size: calc(0.5rem + 1dvw);
-        text-align: right;
-        a {
-          text-decoration: none;
-          color: var(--link-color);
-          text-transform: uppercase;
-          &:hover,
-          &:focus,
-          &:active {
-            color: var(--accent);
-            outline-offset: 4px;
-            outline: 2px dashed var(--accent);
-          }
-        }
-        @media screen and (max-width: 600px) {
-          font-size: calc(0.5rem + 2.5vw);
-        }
-      }
-    </style>
-    <style is:global>
-      @media (prefers-reduced-motion: no-preference) {
-        :root {
-          scroll-behavior: smooth;
-        }
-      }
+            nav {
+                position: fixed;
+                right: 0;
+                padding: 1rem;
+                z-index: 9999;
+            }
+            nav ul {
+                list-style: none;
+                font-size: calc(0.5rem + 1dvw);
+                text-align: right;
+                a {
+                    text-decoration: none;
+                    color: var(--link-color);
+                    text-transform: uppercase;
+                    &:hover,
+                    &:focus,
+                    &:active {
+                        color: var(--accent);
+                        outline-offset: 4px;
+                        outline: 2px dashed var(--accent);
+                    }
+                }
+                @media screen and (max-width: 600px) {
+                    font-size: calc(0.5rem + 2.5vw);
+                }
+            }
+        </style>
+        <style is:global>
+            @media (prefers-reduced-motion: no-preference) {
+                :root {
+                    scroll-behavior: smooth;
+                }
+            }
 
-      * {
-        box-sizing: border-box;
-        padding: 0;
-        margin: 0;
+            * {
+                box-sizing: border-box;
+                padding: 0;
+                margin: 0;
 
-        /* Cornered border variables */
-        --corner-border-thickness: 2px; /* thickness of the border */
-        --corner-border-color: var(--border-color); /* color of the border */
-        --corner-border-width: 1rem; /* width of border */
-        --corner-border-g: #0000 90deg, var(--corner-border-color) 0;
-        --corner-border-p: var(--corner-border-width) var(--corner-border-width)
-          border-box no-repeat;
-        --corner-border-gradient: conic-gradient(
-              from 90deg at top var(--corner-border-thickness) left
-                var(--corner-border-thickness),
-              var(--corner-border-g)
-            )
-            0 0 / var(--corner-border-p),
-          conic-gradient(
-              from 180deg at top var(--corner-border-thickness) right
-                var(--corner-border-thickness),
-              var(--corner-border-g)
-            )
-            100% 0 / var(--corner-border-p),
-          conic-gradient(
-              from 0deg at bottom var(--corner-border-thickness) left
-                var(--corner-border-thickness),
-              var(--corner-border-g)
-            )
-            0 100% / var(--corner-border-p),
-          conic-gradient(
-              from -90deg at bottom var(--corner-border-thickness) right var(--corner-border-thickness),
-              var(--corner-border-g)
-            )
-            100% 100% / var(--corner-border-p);
-      }
+                /* Cornered border variables */
+                --corner-border-thickness: 2px; /* thickness of the border */
+                --corner-border-color: var(
+                    --border-color
+                ); /* color of the border */
+                --corner-border-width: 1rem; /* width of border */
+                --corner-border-g: #0000 90deg, var(--corner-border-color) 0;
+                --corner-border-p: var(--corner-border-width)
+                    var(--corner-border-width) border-box no-repeat;
+                --corner-border-gradient: conic-gradient(
+                            from 90deg at top var(--corner-border-thickness)
+                                left var(--corner-border-thickness),
+                            var(--corner-border-g)
+                        )
+                        0 0 / var(--corner-border-p),
+                    conic-gradient(
+                            from 180deg at top var(--corner-border-thickness)
+                                right var(--corner-border-thickness),
+                            var(--corner-border-g)
+                        )
+                        100% 0 / var(--corner-border-p),
+                    conic-gradient(
+                            from 0deg at bottom var(--corner-border-thickness)
+                                left var(--corner-border-thickness),
+                            var(--corner-border-g)
+                        )
+                        0 100% / var(--corner-border-p),
+                    conic-gradient(
+                            from -90deg at bottom var(--corner-border-thickness)
+                                right var(--corner-border-thickness),
+                            var(--corner-border-g)
+                        )
+                        100% 100% / var(--corner-border-p);
+            }
 
-      @font-face {
-        font-family: CommitMono;
-        src: url('/fonts/commitmono-400-regular-webfont.woff2') format('woff2');
-        font-weight: normal;
-        font-style: normal;
-        font-display: swap;
-      }
+            @font-face {
+                font-family: CommitMono;
+                src: url("/fonts/commitmono-400-regular-webfont.woff2")
+                    format("woff2");
+                font-weight: normal;
+                font-style: normal;
+                font-display: swap;
+            }
 
-      @font-face {
-        font-family: CommitMono;
-        src: url('/fonts/commitmono-700-regular-webfont.woff2') format('woff2');
-        font-weight: bold;
-        font-style: normal;
-        font-display: swap;
-      }
+            @font-face {
+                font-family: CommitMono;
+                src: url("/fonts/commitmono-700-regular-webfont.woff2")
+                    format("woff2");
+                font-weight: bold;
+                font-style: normal;
+                font-display: swap;
+            }
 
-      @font-face {
-        font-family: IBMPlexSerif;
-        src: url('/fonts/IBMPlexSerif-Text.woff2') format('woff2');
-        font-weight: 400;
-        font-style: normal;
-        font-display: swap;
-      }
+            @font-face {
+                font-family: IBMPlexSerif;
+                src: url("/fonts/IBMPlexSerif-Text.woff2") format("woff2");
+                font-weight: 400;
+                font-style: normal;
+                font-display: swap;
+            }
 
-      @font-face {
-        font-family: IBMPlexSerif;
-        src: url('/fonts/IBMPlexSerif-TextItalic.woff2') format('woff2');
-        font-weight: 400;
-        font-style: italic;
-        font-display: swap;
-      }
+            @font-face {
+                font-family: IBMPlexSerif;
+                src: url("/fonts/IBMPlexSerif-TextItalic.woff2") format("woff2");
+                font-weight: 400;
+                font-style: italic;
+                font-display: swap;
+            }
 
-      @font-face {
-        font-family: IBMPlexSerif;
-        src: url('/fonts/IBMPlexSerif-Light.woff2') format('woff2');
-        font-weight: 300;
-        font-style: normal;
-        font-display: swap;
-      }
+            @font-face {
+                font-family: IBMPlexSerif;
+                src: url("/fonts/IBMPlexSerif-Light.woff2") format("woff2");
+                font-weight: 300;
+                font-style: normal;
+                font-display: swap;
+            }
 
-      @font-face {
-        font-family: IBMPlexSerif;
-        src: url('/fonts/IBMPlexSerif-LightItalic.woff2') format('woff2');
-        font-weight: 300;
-        font-style: italic;
-        font-display: swap;
-      }
+            @font-face {
+                font-family: IBMPlexSerif;
+                src: url("/fonts/IBMPlexSerif-LightItalic.woff2")
+                    format("woff2");
+                font-weight: 300;
+                font-style: italic;
+                font-display: swap;
+            }
 
-      @font-face {
-        font-family: IBMPlexSerif;
-        src: url('/fonts/IBMPlexSerif-Thin.woff2') format('woff2');
-        font-weight: 200;
-        font-style: normal;
-        font-display: swap;
-      }
+            @font-face {
+                font-family: IBMPlexSerif;
+                src: url("/fonts/IBMPlexSerif-Thin.woff2") format("woff2");
+                font-weight: 200;
+                font-style: normal;
+                font-display: swap;
+            }
 
-      @font-face {
-        font-family: IBMPlexSerif;
-        src: url('/fonts/IBMPlexSerif-ThinItalic.woff2') format('woff2');
-        font-weight: 200;
-        font-style: italic;
-        font-display: swap;
-      }
+            @font-face {
+                font-family: IBMPlexSerif;
+                src: url("/fonts/IBMPlexSerif-ThinItalic.woff2") format("woff2");
+                font-weight: 200;
+                font-style: italic;
+                font-display: swap;
+            }
 
-      html,
-      body {
-        font-family: CommitMono, system-ui;
-        font-size: 14px;
-        font-smooth: auto;
-        -webkit-font-smoothing: antialiased;
-        @media (min-width: 768px) {
-          font-size: 18px;
-        }
-      }
+            html,
+            body {
+                font-family: CommitMono, system-ui;
+                font-size: 14px;
+                font-smooth: auto;
+                -webkit-font-smoothing: antialiased;
+                @media (min-width: 768px) {
+                    font-size: 18px;
+                }
+            }
 
-      h1,
-      h2,
-      h3,
-      h4,
-      h5,
-      h6,
-      summary {
-        color: var(--foreground-color);
-        font-family: CommitMono;
-        font-weight: bold;
-      }
+            h1,
+            h2,
+            h3,
+            h4,
+            h5,
+            h6,
+            summary {
+                color: var(--foreground-color);
+                font-family: CommitMono;
+                font-weight: bold;
+            }
 
-      h3,
-      h4,
-      h5,
-      h6 {
-        color: var(--header-color);
-        font-weight: normal;
-      }
-      main {
-        align-items: center;
-        display: flex;
-        flex-direction: column;
-        margin-left: auto;
-        margin-right: auto;
-        height: 100%;
-        overflow: auto;
-      }
+            h3,
+            h4,
+            h5,
+            h6 {
+                color: var(--header-color);
+                font-weight: normal;
+            }
+            main {
+                align-items: center;
+                display: flex;
+                flex-direction: column;
+                margin-left: auto;
+                margin-right: auto;
+                height: 100%;
+                overflow: auto;
+            }
 
-      article {
-        width: 100%;
-        height: 100%;
+            article {
+                width: 100%;
+                height: 100%;
 
-        @media screen and (max-width: 600px) {
-          min-height: 100dvh;
-        }
-      }
-      section {
-        margin-left: auto;
-        margin-right: auto;
-        width: 100%;
-        height: 100%;
-      }
-      h1 {
-        font-size: 2rem;
-      }
+                @media screen and (max-width: 600px) {
+                    min-height: 100dvh;
+                }
+            }
+            section {
+                margin-left: auto;
+                margin-right: auto;
+                width: 100%;
+                height: 100%;
+            }
+            h1 {
+                font-size: 2rem;
+            }
 
-      button {
-        font-family: CommitMono;
-        font-weight: normal;
-        background: none;
-        border: none;
-        @media (min-width: 768px) {
-          font-size: 1rem;
-        }
-      }
+            button {
+                font-family: CommitMono;
+                font-weight: normal;
+                background: none;
+                border: none;
+                @media (min-width: 768px) {
+                    font-size: 1rem;
+                }
+            }
 
-      body {
-        color: var(--foreground-color);
-        background: var(--background-color);
-      }
+            body {
+                color: var(--foreground-color);
+                background: var(--background-color);
+            }
 
-      article {
-        width: 100%;
-        height: 100%;
-      }
-      section {
-        margin-left: auto;
-        margin-right: auto;
-        width: 100%;
-        height: 100%;
-      }
+            article {
+                width: 100%;
+                height: 100%;
+            }
+            section {
+                margin-left: auto;
+                margin-right: auto;
+                width: 100%;
+                height: 100%;
+            }
 
-      a {
-        color: var(--link-color);
-        text-decoration: underline;
-        outline-offset: 0;
-        &:hover,
-        &:focus-visible,
-        &:active {
-          outline: 2px dashed var(--accent);
-          color: var(--accent);
-        }
-      }
+            a {
+                color: var(--link-color);
+                text-decoration: underline;
+                outline-offset: 0;
+                &:hover,
+                &:focus-visible,
+                &:active {
+                    outline: 2px dashed var(--accent);
+                    color: var(--accent);
+                }
+            }
 
-      pre {
-        display: inline-block;
-        background-color: var(--border-color);
-        margin: 0;
-        width: auto;
-        padding: 0 0.3rem;
-        font-size: large;
-      }
+            pre {
+                display: inline-block;
+                background-color: color-mix(
+                    in hsl,
+                    var(--background-color),
+                    var(--accent)
+                );
+                margin: 0;
+                width: auto;
+                padding: 0 0.3rem;
+                font-size: large;
+            }
 
-      ul {
-        list-style: none;
-        padding: 0;
-        margin: 0;
-      }
+            ul {
+                list-style: none;
+                padding: 0;
+                margin: 0;
+            }
 
-      a,
-      button {
-        transition: all 0.2s ease-in-out;
-        &:focus,
-        &:hover,
-        &:focus-visible,
-        &:active {
-          outline-style: solid;
-          outline-color: var(--accent);
-          outline-width: 2px;
-          border-radius: var(--border-radius);
-        }
-      }
-    </style>
-  </body>
+            a,
+            button {
+                transition: all 0.2s ease-in-out;
+                &:focus,
+                &:hover,
+                &:focus-visible,
+                &:active {
+                    outline-style: solid;
+                    outline-color: var(--accent);
+                    outline-width: 2px;
+                    border-radius: var(--border-radius);
+                }
+            }
+        </style>
+    </body>
 </html>

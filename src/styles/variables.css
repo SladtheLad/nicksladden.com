@@ -1,58 +1,69 @@
 :root {
-  --foreground-color: #e9efff;
-  --header-color: #8a9192;
-  --content-color: #ced7d8;
-  --border-color: #38383f;
-  --background-color: #1c1d24;
-  --link-color: var(--header-color);
-  --accent: #ffb980;
-  --icon-outline: var(--background-color);
-  --icon-fill-primary: #484849;
-  --icon-primary: #202020;
-  --icon-secondary: var(--content-color);
-  --icon-tertiary: #f0eeee;
-  --icon-quaternary: #a0a0a0;
-  --icon-quinary: #7a7a7a;
-  --icon-size-1: 132px;
-  --accent-opacity: 0.75;
+    --foreground-color: #e9efff;
+    --header-color: #8a9192;
+    --content-color: #ced7d8;
+    --border-color: #38383f;
+    --background-color: #1c1d24;
+    --link-color: var(--header-color);
+    --accent: #ffb980;
+    --icon-outline: var(--background-color);
+    --icon-fill-primary: #484849;
+    --icon-primary: #202020;
+    --icon-secondary: var(--content-color);
+    --icon-tertiary: #f0eeee;
+    --icon-quaternary: #a0a0a0;
+    --icon-quinary: #7a7a7a;
+    --icon-size-1: 132px;
+    --accent-opacity: 0.75;
+    --border-radius: 0.25rem;
+    --border-radius-2: 0.5rem;
 
-  /* Scrollbar Styles */
-  --scrollbar-color-thumb: var(--accent);
-  --scrollbar-color-track: var(--background-color);
-  --scrollbar-width: thin;
-  --scrollbar-width-legacy: 4px;
+    /* Light Colors */
 
-  /* Modern browsers with `scrollbar-*` support */
-  @supports (scrollbar-width: auto) {
-    scrollbar-color: var(--scrollbar-color-thumb) var(--scrollbar-color-track);
-    scrollbar-width: var(--scrollbar-width);
-  }
-
-  /* Legacy browsers with `::-webkit-scrollbar-*` support */
-  @supports selector(::-webkit-scrollbar) {
-    ::-webkit-scrollbar-thumb {
-      background: var(--scrollbar-color-thumb);
-      border-radius: var(--border-radius);
+    @media (prefers-color-scheme: light) {
+        --foreground-color: #1c1d24;
+        --header-color: #38383f;
+        --content-color: #7a7a7a;
+        --border-color: #38383f;
+        --background-color: #f0eeee;
+        --link-color: var(--header-color);
+        --accent: #d5670e;
+        --icon-outline: var(--background-color);
+        --icon-fill-primary: #484849;
+        --icon-primary: #202020;
+        --icon-secondary: var(--content-color);
+        --icon-tertiary: #f0eeee;
+        --icon-quaternary: #a0a0a0;
+        --icon-quinary: #7a7a7a;
+        --icon-size-1: 132px;
+        --accent-opacity: 0.75;
     }
-    ::-webkit-scrollbar-track {
-      background: var(--scrollbar-color-track);
-    }
-    ::-webkit-scrollbar {
-      max-width: var(--scrollbar-width-legacy);
-      max-height: var(--scrollbar-width-legacy);
-    }
-  }
 
-  /* 30%, 70 */
-  --border-radius: 0.25rem;
-  --border-radius-2: 0.5rem;
+    /* Scrollbar Styles */
+    --scrollbar-color-thumb: var(--accent);
+    --scrollbar-color-track: var(--background-color);
+    --scrollbar-width: thin;
+    --scrollbar-width-legacy: 4px;
 
-  @media (color-gamut: p3) {
-    --accent: color(display-p3 1 0.72549 0.501961 / 1);
-    --background-color: color(display-p3 0.109804 0.113725 0.141176 / 1);
-    @supports (color: oklch(0 0 0)) {
-      --accent: oklch(84% 32% 57);
-      --background-color: oklch(23.28% 0.014 278.88);
+    /* Modern browsers with `scrollbar-*` support */
+    @supports (scrollbar-width: auto) {
+        scrollbar-color: var(--scrollbar-color-thumb)
+            var(--scrollbar-color-track);
+        scrollbar-width: var(--scrollbar-width);
     }
-  }
+
+    /* Legacy browsers with `::-webkit-scrollbar-*` support */
+    @supports selector(::-webkit-scrollbar) {
+        ::-webkit-scrollbar-thumb {
+            background: var(--scrollbar-color-thumb);
+            border-radius: var(--border-radius);
+        }
+        ::-webkit-scrollbar-track {
+            background: var(--scrollbar-color-track);
+        }
+        ::-webkit-scrollbar {
+            max-width: var(--scrollbar-width-legacy);
+            max-height: var(--scrollbar-width-legacy);
+        }
+    }
 }
