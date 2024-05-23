@@ -1,229 +1,228 @@
-@import '@radix-ui/colors/black-alpha.css';
-@import '@radix-ui/colors/green.css';
-@import '@radix-ui/colors/mauve.css';
-@import '@radix-ui/colors/violet.css';
-@import '../../styles/variables.css';
+@import "@radix-ui/colors/black-alpha.css";
+@import "@radix-ui/colors/green.css";
+@import "@radix-ui/colors/mauve.css";
+@import "@radix-ui/colors/violet.css";
 
 /* reset */
 button,
 fieldset,
 input {
-  all: unset;
+    all: unset;
 }
 
 .TabsRoot {
-  display: flex;
-  flex-direction: row;
-  width: 100%;
-  max-width: 1000px;
-  height: 100%;
-  min-height: 700px;
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    max-width: 1000px;
+    height: 100%;
+    min-height: 700px;
 
-  &:focus-within {
-    .TabsContent {
-      border-color: var(--accent);
-      z-index: 1;
+    &:focus-within {
+        .TabsContent {
+            border-color: var(--accent);
+            z-index: 1;
+        }
     }
-  }
 }
 
 .TabsList {
-  flex-shrink: 0;
-  display: flex;
-  flex-direction: column;
-  height: fit-content;
-  transform: translate(-8px, 30px);
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+    height: fit-content;
+    transform: translate(-8px, 30px);
 }
 
 .TabsTrigger {
-  font-family: inherit;
-  padding: 20px;
-  writing-mode: vertical-rl;
-  text-orientation: sideways;
-  height: fit-content;
-  display: block;
-  font-size: 15px;
-  line-height: 1;
-  color: inherit;
-  user-select: none;
-  border-radius: 0;
-  border: 1px solid var(--border-color);
-  background-color: var(--background-color);
-  border-left: none;
-  transform: rotate(180deg);
-
-  &:hover,
-  &:focus-visible,
-  &:focus,
-  &:active {
-    outline: none;
+    font-family: inherit;
+    padding: 20px;
+    writing-mode: vertical-rl;
+    text-orientation: sideways;
+    height: fit-content;
+    display: block;
+    font-size: 15px;
+    line-height: 1;
+    color: inherit;
+    user-select: none;
     border-radius: 0;
-  }
+    border: 1px solid var(--border-color);
+    background-color: var(--background-color);
+    border-left: none;
+    transform: rotate(180deg);
+
+    &:hover,
+    &:focus-visible,
+    &:focus,
+    &:active {
+        outline: none;
+        border-radius: 0;
+    }
 }
-.TabsTrigger[data-state='inactive'] {
-  border-top-color: var(--background-color);
-  border-bottom-color: var(--background-color);
+.TabsTrigger[data-state="inactive"] {
+    border-top-color: var(--background-color);
+    border-bottom-color: var(--background-color);
 }
 .TabsTrigger:first-child {
-  border-bottom-right-radius: 0.25rem;
-  border-bottom-color: var(--border-color);
-  &::after {
-    content: '';
-    position: absolute;
-    width: 10px;
-    height: 20px;
-    background-color: var(--background-color);
-    z-index: 4;
-  }
+    border-bottom-right-radius: 0.25rem;
+    border-bottom-color: var(--border-color);
+    &::after {
+        content: "";
+        position: absolute;
+        width: 10px;
+        height: 20px;
+        background-color: var(--background-color);
+        z-index: 4;
+    }
 }
 
 .TabsTrigger:last-child {
-  border-top-color: var(--border-color);
-  border-top-right-radius: 0.25rem;
-  &::before {
-    content: '';
-    position: absolute;
-    width: 10px;
-    height: 20px;
-    background-color: var(--background-color);
-    z-index: 4;
-  }
+    border-top-color: var(--border-color);
+    border-top-right-radius: 0.25rem;
+    &::before {
+        content: "";
+        position: absolute;
+        width: 10px;
+        height: 20px;
+        background-color: var(--background-color);
+        z-index: 4;
+    }
 }
 
 .TabsTrigger:first-child::after {
-  border: 1px solid var(--border-color);
-  bottom: -21px;
-  left: -9px;
-  border-top-left-radius: 0.25rem;
-  border-width: 1px 0 0 1px;
+    border: 1px solid var(--border-color);
+    bottom: -21px;
+    left: -9px;
+    border-top-left-radius: 0.25rem;
+    border-width: 1px 0 0 1px;
 }
 
 .TabsTrigger:last-child::before {
-  border: 1px solid var(--border-color);
-  top: -21px;
-  left: -9px;
-  border-bottom-left-radius: 0.25rem;
-  border-width: 0 0 1px 1px;
+    border: 1px solid var(--border-color);
+    top: -21px;
+    left: -9px;
+    border-bottom-left-radius: 0.25rem;
+    border-width: 0 0 1px 1px;
 }
 /* .TabsTrigger:hover {
   border-color: var(--foreground-color);
 } */
-.TabsTrigger[data-state='active'] {
-  color: var(--accent);
-  border-color: var(--accent);
-  border-bottom-right-radius: 0.25rem;
-  border-top-right-radius: 0.25rem;
-  z-index: 1;
-  /* border-left: 2px solid var(--background-color); */
+.TabsTrigger[data-state="active"] {
+    color: var(--accent);
+    border-color: var(--accent);
+    border-bottom-right-radius: 0.25rem;
+    border-top-right-radius: 0.25rem;
+    z-index: 1;
+    /* border-left: 2px solid var(--background-color); */
 }
 
-.TabsTrigger[data-state='active']:before,
-.TabsTrigger[data-state='active']:after {
-  content: '';
-  position: absolute;
-  width: 10px;
-  height: 20px;
-  background-color: var(--background-color);
-  z-index: 4;
+.TabsTrigger[data-state="active"]:before,
+.TabsTrigger[data-state="active"]:after {
+    content: "";
+    position: absolute;
+    width: 10px;
+    height: 20px;
+    background-color: var(--background-color);
+    z-index: 4;
 }
 
-.TabsTrigger[data-state='active']:after,
-.TabsTrigger[data-state='active']:before {
-  border: 1px solid var(--accent);
+.TabsTrigger[data-state="active"]:after,
+.TabsTrigger[data-state="active"]:before {
+    border: 1px solid var(--accent);
 }
 
-.TabsTrigger[data-state='active']:before {
-  top: -21px;
-  left: -9px;
-  border-bottom-left-radius: 0.25rem;
-  border-width: 0 0 1px 1px;
+.TabsTrigger[data-state="active"]:before {
+    top: -21px;
+    left: -9px;
+    border-bottom-left-radius: 0.25rem;
+    border-width: 0 0 1px 1px;
 }
-.TabsTrigger[data-state='active']:after {
-  bottom: -21px;
-  left: -9px;
-  border-top-left-radius: 0.25rem;
-  border-width: 1px 0 0 1px;
+.TabsTrigger[data-state="active"]:after {
+    bottom: -21px;
+    left: -9px;
+    border-top-left-radius: 0.25rem;
+    border-width: 1px 0 0 1px;
 }
 
 /* TODO: find a way to clip the border of the content only
   along the areas of the tabs */
 
 .folder-clip {
-  position: relative;
-  overflow: hidden;
-  width: 2px;
-  background-color: var(--background-color);
-  z-index: 0;
+    position: relative;
+    overflow: hidden;
+    width: 2px;
+    background-color: var(--background-color);
+    z-index: 0;
 }
 
 .TabsContent {
-  flex-grow: 1;
-  padding: 20px;
-  border: 1px solid var(--border-color);
-  z-index: -1;
-  border-radius: var(--border-radius);
-  outline: none;
-  height: 100%;
+    flex-grow: 1;
+    padding: 20px;
+    border: 1px solid var(--border-color);
+    z-index: -1;
+    border-radius: var(--border-radius);
+    outline: none;
+    height: 100%;
 }
 .TabsContent:focus {
 }
 
 .Text {
-  margin-top: 0;
-  margin-bottom: 20px;
-  color: var(--mauve-11);
-  font-size: 15px;
-  line-height: 1.5;
+    margin-top: 0;
+    margin-bottom: 20px;
+    color: var(--mauve-11);
+    font-size: 15px;
+    line-height: 1.5;
 }
 
 .Fieldset {
-  margin-bottom: 15px;
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
+    margin-bottom: 15px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
 }
 
 .Label {
-  font-size: 13px;
-  line-height: 1;
-  margin-bottom: 10px;
-  color: var(--violet-12);
-  display: block;
+    font-size: 13px;
+    line-height: 1;
+    margin-bottom: 10px;
+    color: var(--violet-12);
+    display: block;
 }
 
 .Input {
-  flex: 1 0 auto;
-  border-radius: var(--border-radius);
-  padding: 0 10px;
-  font-size: 15px;
-  line-height: 1;
-  color: var(--violet-11);
-  box-shadow: 0 0 0 1px var(--violet-7);
-  height: 35px;
+    flex: 1 0 auto;
+    border-radius: var(--border-radius);
+    padding: 0 10px;
+    font-size: 15px;
+    line-height: 1;
+    color: var(--violet-11);
+    box-shadow: 0 0 0 1px var(--violet-7);
+    height: 35px;
 }
 .Input:focus {
-  box-shadow: 0 0 0 2px var(--violet-8);
+    box-shadow: 0 0 0 2px var(--violet-8);
 }
 
 .Button {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: var(--border-radius);
-  padding: 0 15px;
-  font-size: 15px;
-  line-height: 1;
-  font-weight: 500;
-  height: 35px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: var(--border-radius);
+    padding: 0 15px;
+    font-size: 15px;
+    line-height: 1;
+    font-weight: 500;
+    height: 35px;
 }
 .Button.green {
-  background-color: var(--green-4);
-  color: var(--green-11);
+    background-color: var(--green-4);
+    color: var(--green-11);
 }
 .Button.green:hover {
-  background-color: var(--green-5);
+    background-color: var(--green-5);
 }
 .Button.green:focus {
-  box-shadow: 0 0 0 2px var(--green-7);
+    box-shadow: 0 0 0 2px var(--green-7);
 }

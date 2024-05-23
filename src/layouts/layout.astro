@@ -3,6 +3,7 @@ import { ViewTransitions } from "astro:transitions";
 const { title, description, url } = Astro.props.frontmatter || Astro.props;
 import favicon from "../images/favicon.ico";
 import SpeedInsights from "@vercel/speed-insights/astro";
+import SchemeToggleButton from "../components/scheme-toggle";
 ---
 
 <html lang="en">
@@ -45,6 +46,29 @@ import SpeedInsights from "@vercel/speed-insights/astro";
         />
         <title>{title}</title>
         <SpeedInsights />
+
+        <script is:inline>
+            const theme = (() => {
+                if (
+                    typeof localStorage !== "undefined" &&
+                    localStorage.getItem("theme")
+                ) {
+                    return localStorage.getItem("theme");
+                }
+                if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
+                    return "dark";
+                }
+                return "light";
+            })();
+
+            if (theme === "light") {
+                document.documentElement.classList.remove("dark");
+            } else {
+                document.documentElement.classList.add("dark");
+            }
+
+            window.localStorage.setItem("theme", theme);
+        </script>
     </head>
 
     <ViewTransitions />
@@ -55,6 +79,7 @@ import SpeedInsights from "@vercel/speed-insights/astro";
                 <li><a href="/">Home</a></li>
                 <li><a href="/portfolio">Portfolio</a></li>
                 <li><a href="/blog">Blog</a></li>
+                <li><SchemeToggleButton client:load /></li>
             </ul>
         </nav>
         <main role="main">
@@ -62,8 +87,6 @@ import SpeedInsights from "@vercel/speed-insights/astro";
         </main>
 
         <style>
-            @import "../styles/variables.css";
-
             nav {
                 position: fixed;
                 right: 0;
@@ -102,6 +125,40 @@ import SpeedInsights from "@vercel/speed-insights/astro";
                 box-sizing: border-box;
                 padding: 0;
                 margin: 0;
+            }
+            :root {
+                /*variables*/
+
+                --border-radius: 0.25rem;
+                --border-radius-2: 0.5rem;
+
+                /* Scrollbar Styles */
+                --scrollbar-color-thumb: var(--accent);
+                --scrollbar-color-track: var(--background-color);
+                --scrollbar-width: thin;
+                --scrollbar-width-legacy: 4px;
+
+                /* Modern browsers with `scrollbar-*` support */
+                @supports (scrollbar-width: auto) {
+                    scrollbar-color: var(--scrollbar-color-thumb)
+                        var(--scrollbar-color-track);
+                    scrollbar-width: var(--scrollbar-width);
+                }
+
+                /* Legacy browsers with `::-webkit-scrollbar-*` support */
+                @supports selector(::-webkit-scrollbar) {
+                    ::-webkit-scrollbar-thumb {
+                        background: var(--scrollbar-color-thumb);
+                        border-radius: var(--border-radius);
+                    }
+                    ::-webkit-scrollbar-track {
+                        background: var(--scrollbar-color-track);
+                    }
+                    ::-webkit-scrollbar {
+                        max-width: var(--scrollbar-width-legacy);
+                        max-height: var(--scrollbar-width-legacy);
+                    }
+                }
 
                 /* Cornered border variables */
                 --corner-border-thickness: 2px; /* thickness of the border */
@@ -136,6 +193,42 @@ import SpeedInsights from "@vercel/speed-insights/astro";
                             var(--corner-border-g)
                         )
                         100% 100% / var(--corner-border-p);
+            }
+            html {
+                --foreground-color: #1c1d24;
+                --header-color: #38383f;
+                --content-color: #7a7a7a;
+                --border-color: #38383f;
+                --background-color: #f0eeee;
+                --link-color: var(--header-color);
+                --accent: #d5670e;
+                --icon-outline: var(--background-color);
+                --icon-fill-primary: #484849;
+                --icon-primary: #202020;
+                --icon-secondary: var(--content-color);
+                --icon-tertiary: #f0eeee;
+                --icon-quaternary: #a0a0a0;
+                --icon-quinary: #7a7a7a;
+                --icon-size-1: 132px;
+                --accent-opacity: 0.75;
+            }
+            html.dark {
+                --foreground-color: #e9efff;
+                --header-color: #8a9192;
+                --content-color: #ced7d8;
+                --border-color: #38383f;
+                --background-color: #1c1d24;
+                --link-color: var(--header-color);
+                --accent: #ffb980;
+                --icon-outline: var(--background-color);
+                --icon-fill-primary: #484849;
+                --icon-primary: #202020;
+                --icon-secondary: var(--content-color);
+                --icon-tertiary: #f0eeee;
+                --icon-quaternary: #a0a0a0;
+                --icon-quinary: #7a7a7a;
+                --icon-size-1: 132px;
+                --accent-opacity: 0.75;
             }
 
             @font-face {
