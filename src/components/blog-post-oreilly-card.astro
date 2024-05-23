@@ -168,11 +168,14 @@ interface Props extends AstroBuiltinProps {
         a:active,
         a:focus-visible,
         a:hover {
-            outline: 1px dashed var(--accent);
-            outline-offset: 0.5rem;
             .oreilly-blog-card {
                 outline: solid 1px var(--accent);
                 /* border-color: color-mix(in hsl, var(--accent), transparent 80%); */
+                background-color: color-mix(
+                    in hsl,
+                    var(--accent),
+                    transparent 96%
+                );
                 div.title-container {
                     opacity: 1;
                 }
@@ -182,6 +185,13 @@ interface Props extends AstroBuiltinProps {
             }
             svg {
                 transform: scale(1.1) translate(8%, 7%);
+            }
+        }
+
+        a:focus-visible {
+            .oreilly-blog-card {
+                outline: 1px dashed var(--accent);
+                outline-offset: 0.5rem;
             }
         }
         @media screen and (max-width: 768px) {
